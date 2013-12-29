@@ -1,10 +1,8 @@
 http = require 'http'
 crypto = require 'crypto'
 Promise = require('es6-promise').Promise
+{parseString} = require 'xml2js'
 
-awsId = process.env.AWS_ID
-awsSecret = process.env.AWS_SECRET
-awsTag = process.env.AWS_TAG
 
 generateTimestamp = ->
   addZero = (number) ->
@@ -17,33 +15,32 @@ generateTimestamp = ->
   hours = addZero now.getUTCHours()
   mins = addZero now.getUTCMinutes()
   secs = addZero now.getUTCSeconds()
-  timestamp = [year, month, day].join('-') + 'T' + [hours, mins, secs].join(':') + 'Z'
+  timestamp = [year, month, day].join('-') + 'T' + [hours, mins, secs].join(':') + '.000Z'
 
 
-generateSignature = (stringToSign) ->
-  secretKey = awsSecret
-  hmac = crypto.createHmac 'sha256', secretKey
-  hmac.update stringToSign
-  hmac.digest 'base64'
+generateSignature = (stringToSign, awsSecret) ->
+  hmac = crypto.createHmac 'sha256', awsSecret
+  hmac.update(stringToSign).digest 'base64'
 
 
-generateQueryString = ->
+generateQueryString = (query, client) ->
+  condition = query.condition || 'All'
+  keywords = query.keywords || ''
+  responseGroup = query.responseGroup || 'ItemAttributes'
+  searchIndex = query.searchIndex || 'All'
   unsignedString = "
-AWSAccessKeyId=#{awsId}
-&AssociateTag=#{awsTag}
-&Condition=All
-&Keywords=#{escape 'alien 3'}
+AWSAccessKeyId=#{client.awsId}
+&AssociateTag=#{client.awsTag}
+&Condition=#{condition}
+&Keywords=#{escape keywords}
 &Operation=ItemSearch
-&ResponseGroup=ItemAttributes
-&SearchIndex=All
+&ResponseGroup=#{responseGroup}
+&SearchIndex=#{searchIndex}
 &Service=AWSECommerceService
 &Timestamp=#{escape generateTimestamp()}
-&Version=2011-08-01
-"
-  signature = generateSignature 'GET\nwebservices.amazon.com\n/onca/xml\n' + unsignedString
+&Version=2011-08-01"
+  signature = generateSignature 'GET\nwebservices.amazon.com\n/onca/xml\n' + unsignedString, client.awsSecret
   queryString = 'http://webservices.amazon.com/onca/xml?' + unsignedString + '&Signature=' + escape signature
-
-
 
 
 get = (url) ->
@@ -57,18 +54,32 @@ get = (url) ->
         responseData += chunk
 
       if response.statusCode is 200
-        response.on 'end', -> resolve responseData
+        response.on 'end', ->
+          parseString responseData, (error, result) ->
+            if error?
+              reject error
+            else
+              resolve result.ItemSearchResponse.Items[0].Item
       else
-        response.on 'end', -> reject responseData
+        response.on 'end', ->
+          parseString responseData, (error, result) ->
+            if error?
+              reject error
+            else
+              reject result
 
     request.on 'error', (error) ->
       reject error
 
 
+itemSearch = (client = {}) ->
+  client.awsId = client.awsId || ''
+  client.awsSecret = client.awsSecret || ''
+  client.awsTag = client.awsTag || ''
+  (query = {}) ->
+    get generateQueryString query, client
 
-get(generateQueryString()).then (result) ->
-  console.log result
-.catch (err) ->
-  console.log err
+createClient = (client) ->
+  itemSearch: itemSearch client
 
-console.log "async!"
+exports.createClient = createClient

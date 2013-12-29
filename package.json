@@ -1,6 +1,6 @@
 {
   "name": "amazon-product-api",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Amazon Product Advertising API client",
   "main": "./lib/index.js",
   "directories": {
@@ -19,8 +19,8 @@
   "author": "Dmitry Mazuro <dmitry.mazuro@icloud.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "crypto": ">=0.0.3",
-    "es6-promise": "~0.1.1"
+    "es6-promise": "~0.1.1",
+    "xml2js": "~0.4.0"
   },
   "devDependencies": {},
   "repository": {
