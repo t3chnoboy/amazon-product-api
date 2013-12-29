@@ -1,0 +1,21 @@
+{
+  "name": "amazon-product-api",
+  "version": "0.0.0",
+  "description": "Amazon Product Advertising API client",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "amazon",
+    "aws",
+    "product",
+    "ads",
+    "advertising"
+  ],
+  "author": "Dmitry Mazuro <dmitry.mazuro@icloud.com>",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "crypto": "0.0.3"
+  }
+}
