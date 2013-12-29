@@ -1,5 +1,6 @@
 http = require 'http'
 crypto = require 'crypto'
+Promise = require('es6-promise').Promise
 
 awsId = process.env.AWS_ID
 awsSecret = process.env.AWS_SECRET
@@ -44,8 +45,30 @@ AWSAccessKeyId=#{awsId}
 
 
 
-http.get generateQueryString(), (res) ->
-  res.on 'data', (chunk) ->
-    console.log 'BODY: ' + chunk
-.on 'error', (e) ->
-  console.log "Got error: " + e.message
+
+get = (url) ->
+
+  new Promise (resolve, reject) ->
+
+    request = http.get url, (response) ->
+
+      responseData = ''
+      response.on 'data', (chunk) ->
+        responseData += chunk
+
+      if response.statusCode is 200
+        response.on 'end', -> resolve responseData
+      else
+        response.on 'end', -> reject responseData
+
+    request.on 'error', (error) ->
+      reject error
+
+
+
+get(generateQueryString()).then (result) ->
+  console.log result
+.catch (err) ->
+  console.log err
+
+console.log "async!"
