@@ -1,8 +1,9 @@
-# Node.js client for the Amazon Product Advertising API
+# Node.js client for the Amazon Product Advertising API [![NPM version](https://badge.fury.io/js/amazon-product-api.png)](http://badge.fury.io/js/amazon-product-api)
 
 
 
 ## Installation
+[![NPM](https://nodei.co/npm/amazon-product-api.png?downloads=true)](https://nodei.co/npm/amazon-product-api/)
 
 Install using npm:
 ```sh
