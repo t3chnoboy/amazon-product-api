@@ -22,7 +22,9 @@
     "es6-promise": "~0.1.1",
     "xml2js": "~0.4.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "~1.16.2"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/t3chnoboy/amazon-product-api.git"
