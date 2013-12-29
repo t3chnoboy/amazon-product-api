@@ -40,7 +40,9 @@ AWSAccessKeyId=#{client.awsId}
 &Timestamp=#{escape generateTimestamp()}
 &Version=2011-08-01"
   signature = generateSignature 'GET\nwebservices.amazon.com\n/onca/xml\n' + unsignedString, client.awsSecret
-  queryString = 'http://webservices.amazon.com/onca/xml?' + unsignedString + '&Signature=' + escape signature
+  signature = escape signature
+  signature = signature.replace /\+/g, '%2B'
+  queryString = 'http://webservices.amazon.com/onca/xml?' + unsignedString + '&Signature=' + signature
 
 
 get = (url) ->
