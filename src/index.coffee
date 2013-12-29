@@ -27,6 +27,7 @@ generateQueryString = (query, client) ->
   condition = query.condition || 'All'
   keywords = query.keywords || ''
   responseGroup = query.responseGroup || 'ItemAttributes'
+  responseGroup = responseGroup.replace /,/g, '%2C'
   searchIndex = query.searchIndex || 'All'
   unsignedString = "
 AWSAccessKeyId=#{client.awsId}

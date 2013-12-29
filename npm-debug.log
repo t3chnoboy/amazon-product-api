@@ -1,0 +1,29 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'version',
+1 verbose cli   'patch',
+1 verbose cli   '-m',
+1 verbose cli   'fixed wrong signature error when multiple ResponseGroups are passed' ]
+2 info using npm@1.3.15
+3 info using node@v0.11.9
+4 error Error: Git working directory not clean.
+4 error M lib/index.js
+4 error M src/index.coffee
+4 error     at /usr/local/lib/node_modules/npm/lib/version.js:97:35
+4 error     at ChildProcess.exithandler (child_process.js:659:7)
+4 error     at ChildProcess.EventEmitter.emit (events.js:101:17)
+4 error     at maybeClose (child_process.js:773:16)
+4 error     at Socket.<anonymous> (child_process.js:993:11)
+4 error     at Socket.EventEmitter.emit (events.js:98:17)
+4 error     at Pipe.close (net.js:459:12)
+5 error If you need help, you may report this log at:
+5 error     <http://github.com/isaacs/npm/issues>
+5 error or email it to:
+5 error     <npm-@googlegroups.com>
+6 error System Darwin 13.0.0
+7 error command "/usr/local/bin/node" "/usr/local/bin/npm" "version" "patch" "-m" "fixed wrong signature error when multiple ResponseGroups are passed"
+8 error cwd /Users/macuser/Developer/Projects/npm/amazon
+9 error node -v v0.11.9
+10 error npm -v 1.3.15
+11 verbose exit [ 1, true ]
