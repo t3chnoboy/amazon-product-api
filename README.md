@@ -2,10 +2,8 @@
 
 
 Promise-based Node.js client for the Amazon Product Advertising API
-
-## Installation
 [![NPM](https://nodei.co/npm/amazon-product-api.png?downloads=true)](https://nodei.co/npm/amazon-product-api/)
-
+## Installation
 Install using npm:
 ```sh
 npm install amazon-product-api
@@ -16,18 +14,18 @@ npm install amazon-product-api
 amazon = require('amazon-product-api');
 
 var client = amazon.createClient({
-	awsId: "awsId"",
-	awsSecret: "awsSecret",
- 	awsTag: "awsTag"
+	awsId: "aws ID",
+	awsSecret: "aws Secret",
+ 	awsTag: "aws Tag"
 });
 
 client.itemSearch({
-	keywords: title,
+	keywords: 'Pulp fiction',
 	searchIndex: 'DVD',
     responseGroup: 'ItemAttributes,Offers,Images'
 }).then(function(results){
-	return res.send(results);
+	console.log(results);
 }).catch(function(error){
-	return res.send(error);
+	console.log(error);
 });
 ```
