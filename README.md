@@ -8,7 +8,7 @@ Promise-based Node.js client for [Amazon Product Advertising API](https://affili
 The major differences between this project and other implementations are:
 
   1. Item search returns an [EcmaScript6 promise](https://github.com/domenic/promises-unwrapping). (Check out a great article about [ES6 promises](http://www.html5rocks.com/en/tutorials/es6/promises/))
-  2. Item search is ["yieldable"](https://github.com/visionmedia/co#yieldables). So it plays well with fantastic next-gen libs such as [Koa](https://github.com/koajs/koa) and [Co](https://github.com/visionmedia/co)
+  2. Item search is ["yieldable"](https://github.com/visionmedia/co#yieldables). So it plays well with fantastic next-gen libs such as [Koa](https://github.com/koajs/koa) and [Co](https://github.com/visionmedia/co). See [example](https://github.com/t3chnoboy/amazon-product-api#setup-your-own-server-that-doesnt-require-signatures-and-timestamp-and-returns-json)
   3. The entire codebase is very small (~90 LOC)
 
 
@@ -22,17 +22,24 @@ npm install amazon-product-api
 ## Usage
 
 ###Basic usage
+
+Require library
 ```javascript
 amazon = require('amazon-product-api');
+```
 
-//create client
+Create client
+```javascript
 var client = amazon.createClient({
 	awsId: "aws ID",
 	awsSecret: "aws Secret",
  	awsTag: "aws Tag"
 });
+```
 
-//execute item search
+Now you can search for items on amazon like this:
+```javascript
+//search for Pulp Fiction dvd offers
 client.itemSearch({
 	keywords: 'Pulp fiction',
 	searchIndex: 'DVD',
@@ -43,6 +50,13 @@ client.itemSearch({
 	console.log(error);
 });
 ```
+
+###Search query options:
+
+[condition:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) availiable options - 'All', 'New', 'Used', 'Refurbished', 'Collectible'. Defaults to 'All'  
+[keywords:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) Defaults to ''  
+[responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'ItemAttributes,Offers,Images'). Defaults to'ItemAttributes'  
+[searchIndex:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/USSearchIndexParamForItemsearch.html) Defaults to 'All'.
 
 ##Example
 ###Setup your own server that doesn't require signatures and timestamp and returns JSON
