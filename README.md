@@ -85,3 +85,8 @@ app.get '/amazon/:index', (next) ->*
 
 app.listen process.env.PORT || 5000
 ```
+
+Working demo:  
+[Search for Alien DVDs](http://watchlist-koa.herokuapp.com/amazon/DVD?title=alien)  
+[Search for Streets of Rage videogame](http://watchlist-koa.herokuapp.com/amazon/VideoGames?title=streets%20of%20rage)  
+[Search for shoes](http://watchlist-koa.herokuapp.com/amazon/Shoes?title=nike%20nevis)
