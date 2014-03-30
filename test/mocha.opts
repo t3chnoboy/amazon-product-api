@@ -1,0 +1,3 @@
+--require should
+--reporter nyan
+--compilers coffee:coffee-script/register

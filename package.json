@@ -23,7 +23,11 @@
     "xml2js": "~0.4.0"
   },
   "devDependencies": {
-    "mocha": "~1.16.2"
+    "coffee-script": "^1.7.1",
+    "gulp": "^3.6.0",
+    "gulp-coffee": "^1.4.1",
+    "mocha": "^1.18.2",
+    "should": "^3.2.0"
   },
   "repository": {
     "type": "git",
