@@ -51,11 +51,21 @@ describe 'client.itemSearch(query, cb)', ->
     client = amazonProductApi.createClient credentials
 
     describe 'when no callback is passed', ->
+
       it 'should return search results from amazon', ->
         client.itemSearch
-          keywords: 'Pulp fiction',
-          searchIndex: 'DVD',
+          keywords: 'Pulp fiction'
+          searchIndex: 'DVD'
           responseGroup: 'Offers'
+        .then (results) ->
+          results.should.be.an.Array
+
+      it 'should work with custom domain', ->
+        client.itemSearch
+          keywords: 'Pulp fiction'
+          searchIndex: 'DVD'
+          responseGroup: 'Offers'
+          domain: 'webservices.amazon.co.uk'
         .then (results) ->
           results.should.be.an.Array
 
@@ -71,8 +81,8 @@ describe 'client.itemSearch(query, cb)', ->
     describe 'when no callback is passed', ->
       it 'should return an error', ->
         client.itemSearch
-          keywords: 'Pulp fiction',
-          searchIndex: 'DVD',
+          keywords: 'Pulp fiction'
+          searchIndex: 'DVD'
           responseGroup: 'Offers'
         .catch (err) ->
           err.should.be.an.Object
