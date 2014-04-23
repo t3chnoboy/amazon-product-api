@@ -20,14 +20,13 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "es6-promise": "~0.1.1",
-    "xml2js": "~0.4.0"
+    "xml2js": "^0.4.2",
+    "request": "^2.34.0"
   },
   "devDependencies": {
     "coffee-script": "^1.7.1",
-    "gulp": "^3.6.0",
-    "gulp-coffee": "^1.4.1",
     "mocha": "^1.18.2",
-    "should": "^3.2.0"
+    "should": "^3.3.1"
   },
   "repository": {
     "type": "git",
