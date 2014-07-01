@@ -19,14 +19,14 @@
   "author": "Dmitry Mazuro <dmitry.mazuro@icloud.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "es6-promise": "~0.1.1",
-    "xml2js": "^0.4.2",
-    "request": "^2.34.0"
+    "es6-promise": "~1.0.0",
+    "xml2js": "^0.4.4",
+    "request": "^2.36.0"
   },
   "devDependencies": {
     "coffee-script": "^1.7.1",
-    "mocha": "^1.18.2",
-    "should": "^3.3.1"
+    "mocha": "^1.20.1",
+    "should": "^4.0.4"
   },
   "repository": {
     "type": "git",
