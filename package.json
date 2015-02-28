@@ -19,9 +19,9 @@
   "author": "Dmitry Mazuro <dmitry.mazuro@icloud.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "es6-promise": "~1.0.0",
-    "xml2js": "^0.4.4",
-    "request": "^2.36.0"
+    "es6-promise": "^2.0.1",
+    "xml2js": "^0.4.5",
+    "request": "^2.53.0"
   },
   "devDependencies": {
     "coffee-script": "^1.7.1",
