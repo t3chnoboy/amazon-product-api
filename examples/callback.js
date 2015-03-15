@@ -9,7 +9,8 @@ var client = amazon.createClient({
 client.itemSearch({
   keywords: 'Pulp fiction',
   searchIndex: 'DVD',
-  responseGroup: 'ItemAttributes,Offers,Images'
+  responseGroup: 'ItemAttributes,Offers,Images',
+  itemPage: '3'
 }, function(err, results) {
   if (err) {
     console.log(err);
