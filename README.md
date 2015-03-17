@@ -29,24 +29,26 @@ amazon = require('amazon-product-api');
 Create client
 ```javascript
 var client = amazon.createClient({
-	awsId: "aws ID",
-	awsSecret: "aws Secret",
- 	awsTag: "aws Tag"
+  awsId: "aws ID",
+  awsSecret: "aws Secret",
+  awsTag: "aws Tag"
 });
 ```
 
 Now you can search for items on amazon:
 
+###Search Items
+
 using promises:
 ```javascript
 client.itemSearch({
-	keywords: 'Pulp fiction',
-	searchIndex: 'DVD',
+  keywords: 'Pulp fiction',
+  searchIndex: 'DVD',
     responseGroup: 'ItemAttributes,Offers,Images'
 }).then(function(results){
-	console.log(results);
+  console.log(results);
 }).catch(function(err){
-	console.log(err);
+  console.log(err);
 });
 ```
 
@@ -94,8 +96,8 @@ domain: Defaults to 'webservices.amazon.com'.
 ###Setup your own server that doesn't require signatures and timestamp
 ```javascript
 var amazon = require('amazon-product-api'),
-	koa = require('koa'),
-	router = require('koa-router');
+  koa = require('koa'),
+  router = require('koa-router');
 
 var app = koa();
 app.use(router(app));
@@ -123,3 +125,46 @@ Working demo:
 [Search for Alien DVDs](http://watchlist-koa.herokuapp.com/amazon/DVD?title=alien)  
 [Search for Streets of Rage videogame](http://watchlist-koa.herokuapp.com/amazon/VideoGames?title=streets%20of%20rage)  
 [Search for shoes](http://watchlist-koa.herokuapp.com/amazon/Shoes?title=nike%20nevis)
+
+
+
+###Lookup Item
+
+using promises:
+
+```javascript
+client.itemLookup({
+  idType: 'UPC',
+  itemId: '884392579524'
+}).then(function(results) {
+  console.log(JSON.stringify(results));
+}).catch(function(err) {
+  console.log(err);
+});
+```
+
+using a callback:
+```javascript
+client.itemLookup({
+  idType: 'UPC',
+  itemId: '635753490879',
+  responseGroup: 'ItemAttributes,Offers,Images'
+}, function(err, results) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(results);
+  }
+});
+```
+
+###LookupItem query options:
+[condition:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) availiable options - 'All', 'New', 'Used', 'Refurbished', 'Collectible'. Defaults to 'All'  
+[idType:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) Type of item identifier used to look up an item. Availiable options - 'ASIN', 'SKU', 'UPC', 'EAN', 'ISBN'. Defaults to 'ASIN'.  
+[includeReviewsSummary:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) availiable options - 'True','False'. Defaults to 'True'.  
+[itemId:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) One or more (up to ten) positive integers that uniquely identify an item.  
+[responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'ItemAttributes,Offers,Images'). Defaults to'ItemAttributes'  
+[searchIndex:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/USSearchIndexParamForItemsearch.html) Defaults to 'All'.  
+[truncateReviewsAt:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) Defaults to '1000'. To return complete reviews, specify '0'.  
+[variationPage:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) Defaults to 'All'.  
+domain: Defaults to 'webservices.amazon.com'.
