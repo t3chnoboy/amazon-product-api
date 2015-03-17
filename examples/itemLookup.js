@@ -1,14 +1,15 @@
 var amazon = require('../lib');
 
 var client = amazon.createClient({
-  awsId: "AKIAJVU4RMDQ366PPLWA",
-  awsSecret: "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",
-  awsTag: "juancrg90me-20"
+  awsTag: process.env.AWS_TAG,
+  awsId: process.env.AWS_ID,
+  awsSecret: process.env.AWS_SECRET
 });
 
 client.itemLookup({
   idType: 'UPC',
-  itemId: '635753490879'
+  itemId: '635753490879',
+  responseGroup: 'ItemAttributes,Offers,Images'
 }, function(err, results) {
   if (err) {
     console.log(err);
@@ -16,3 +17,5 @@ client.itemLookup({
     console.log(results);
   }
 });
+
+
