@@ -44,7 +44,7 @@ using promises:
 client.itemSearch({
   keywords: 'Pulp fiction',
   searchIndex: 'DVD',
-    responseGroup: 'ItemAttributes,Offers,Images'
+  responseGroup: 'ItemAttributes,Offers,Images'
 }).then(function(results){
   console.log(results);
 }).catch(function(err){
@@ -96,8 +96,8 @@ domain: Defaults to 'webservices.amazon.com'.
 ###Setup your own server that doesn't require signatures and timestamp
 ```javascript
 var amazon = require('amazon-product-api'),
-  koa = require('koa'),
-  router = require('koa-router');
+    koa = require('koa'),
+    router = require('koa-router');
 
 var app = koa();
 app.use(router(app));

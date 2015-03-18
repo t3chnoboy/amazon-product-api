@@ -8,7 +8,7 @@ credentials =
   awsSecret: process.env.AWS_SECRET
 
 
-describe 'generateQueryString(query, credentials)', ->
+describe 'generateQueryString(query, method, credentials)', ->
 
     it 'should return a string', ->
 
@@ -16,6 +16,8 @@ describe 'generateQueryString(query, credentials)', ->
         keywords: 'Game of Thrones'
         searchIndex: 'DVD'
         responseGroup: 'Images,ItemAttributes'
+      ,
+        'ItemSearch'
       ,
         credentials
 
