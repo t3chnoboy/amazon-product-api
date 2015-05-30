@@ -1,4 +1,4 @@
 --require should
---reporter nyan
+--reporter spec
 --compilers coffee:coffee-script/register
---timeout 5000
+--timeout 10000
