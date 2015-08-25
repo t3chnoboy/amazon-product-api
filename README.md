@@ -39,7 +39,7 @@ var client = amazon.createClient({
 
 Now you can search for items on amazon:
 
-###Search Items
+### Search Items
 
 using promises:
 ```javascript
@@ -89,7 +89,7 @@ co(function *(){
 })();
 ```
 
-###Search query options:
+### Search query options:
 
 You can add any [available params](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) for the *itemSearch* method.
 
@@ -101,8 +101,8 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 sort: Valid values include 'salesrank','psrank','titlerank','-price','price'.  
 domain: Defaults to 'webservices.amazon.com'.
 
-##Example
-###Setup your own server that doesn't require signatures and timestamp
+## Example
+### Setup your own server that doesn't require signatures and timestamp
 ```javascript
 var amazon = require('amazon-product-api'),
     koa = require('koa'),
@@ -137,7 +137,7 @@ Working demo:
 
 
 
-###Lookup Item
+### Lookup Item
 
 using promises:
 ```javascript
@@ -166,7 +166,7 @@ client.itemLookup({
 });
 ```
 
-###LookupItem query options:
+### LookupItem query options:
 
 You can add any [available params](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) for the *ItemLookup* method.
 
