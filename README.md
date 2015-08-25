@@ -1,4 +1,6 @@
-# Node.js client for the Amazon Product Advertising API [![NPM version](https://badge.fury.io/js/amazon-product-api.svg)](http://badge.fury.io/js/amazon-product-api) [![Dependency Status](https://gemnasium.com/t3chnoboy/amazon-product-api.svg)](https://gemnasium.com/t3chnoboy/amazon-product-api) [![Build Status](https://travis-ci.org/t3chnoboy/amazon-product-api.svg?branch=master)](https://travis-ci.org/t3chnoboy/amazon-product-api)
+# Node.js client for the Amazon Product Advertising API
+
+[![NPM version](https://badge.fury.io/js/amazon-product-api.svg)](http://badge.fury.io/js/amazon-product-api) [![Dependency Status](https://gemnasium.com/t3chnoboy/amazon-product-api.svg)](https://gemnasium.com/t3chnoboy/amazon-product-api) [![Build Status](https://travis-ci.org/t3chnoboy/amazon-product-api.svg?branch=master)](https://travis-ci.org/t3chnoboy/amazon-product-api)
 
 Node.js client for [Amazon Product Advertising API](https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html)
 ![alt text](http://i.imgur.com/MwfPRfB.gif "Logo Title Text 1")
@@ -41,9 +43,11 @@ Now you can search for items on amazon:
 
 using promises:
 ```javascript
-client.itemSearch({
-  keywords: 'Pulp fiction',
+client.itemSearch({  
+  director: 'Quentin Tarantino',
+  actor: 'Samuel L. Jackson',
   searchIndex: 'DVD',
+  audienceRating: 'R',
   responseGroup: 'ItemAttributes,Offers,Images'
 }).then(function(results){
   console.log(results);
@@ -55,8 +59,10 @@ client.itemSearch({
 using a callback:
 ```javascript
 client.itemSearch({
-  keywords: 'Pulp fiction',
+  director: 'Quentin Tarantino',
+  actor: 'Samuel L. Jackson',
   searchIndex: 'DVD',
+  audienceRating: 'R',
   responseGroup: 'ItemAttributes,Offers,Images'
 }, function(err, results) {
   if (err) {
@@ -84,6 +90,8 @@ co(function *(){
 ```
 
 ###Search query options:
+
+You can add any [available params](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) for the *itemSearch* method.
 
 [condition:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) availiable options - 'All', 'New', 'Used', 'Refurbished', 'Collectible'. Defaults to 'All'  
 [keywords:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) Defaults to ''  
@@ -132,7 +140,6 @@ Working demo:
 ###Lookup Item
 
 using promises:
-
 ```javascript
 client.itemLookup({
   idType: 'UPC',
@@ -160,6 +167,9 @@ client.itemLookup({
 ```
 
 ###LookupItem query options:
+
+You can add any [available params](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) for the *ItemLookup* method.
+
 [condition:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) availiable options - 'All', 'New', 'Used', 'Refurbished', 'Collectible'. Defaults to 'All'  
 [idType:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) Type of item identifier used to look up an item. Availiable options - 'ASIN', 'SKU', 'UPC', 'EAN', 'ISBN'. Defaults to 'ASIN'.  
 [includeReviewsSummary:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) availiable options - 'True','False'. Defaults to 'True'.  
