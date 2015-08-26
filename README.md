@@ -179,3 +179,40 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 [truncateReviewsAt:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) Defaults to '1000'. To return complete reviews, specify '0'.  
 [variationPage:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) Defaults to 'All'.  
 domain: Defaults to 'webservices.amazon.com'.
+
+
+
+### Browse Node Lookup
+
+using promises:
+```javascript
+client.browseNodeLookup({
+  browseNodeId: '549726',
+  responseGroup: 'NewReleases'
+}).then(function(results) {
+  console.log(results);
+}).catch(function(err) {
+  console.log(err);
+});
+```
+
+using a callback:
+```javascript
+client.itemLookup({
+  browseNodeId: '549726',
+  responseGroup: 'NewReleases'
+}, function(err, results) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(results);
+  }
+});
+```
+
+### BrowseNodeLookup query options:
+
+You can add any [available params](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html) for the *BrowseNodeLookup* method.
+
+[browseNodeId:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html) A positive integer assigned by Amazon that uniquely identifies a product category.
+[responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'MostGifted,NewReleases,MostWishedFor,TopSellers'). Defaults to'BrowseNodeInfo'  
