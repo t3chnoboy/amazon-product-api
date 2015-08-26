@@ -215,4 +215,5 @@ client.itemLookup({
 You can add any [available params](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html) for the *BrowseNodeLookup* method.
 
 [browseNodeId:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html) A positive integer assigned by Amazon that uniquely identifies a product category.
+
 [responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'MostGifted,NewReleases,MostWishedFor,TopSellers'). Defaults to'BrowseNodeInfo'  
