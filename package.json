@@ -1,6 +1,6 @@
 {
   "name": "amazon-product-api",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Amazon Product Advertising API client",
   "main": "./lib/index.js",
   "directories": {
