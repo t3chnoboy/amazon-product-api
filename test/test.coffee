@@ -1,11 +1,54 @@
 amazonProductApi = require '../lib/index'
 generateQueryString = require('../lib/utils').generateQueryString
+formatQueryParams = require('../lib/utils').formatQueryParams
 urlRegex = require './regex-weburl'
 
 credentials =
   awsTag: process.env.AWS_TAG
   awsId: process.env.AWS_ID
   awsSecret: process.env.AWS_SECRET
+
+
+describe 'formatQueryParams(query, method, credentials)', ->
+  it 'should return an object', ->
+    queryParams = formatQueryParams
+        artist: 'Muse'
+        searchIndex: 'Music'
+        responseGroup: 'Small,Offers,Images,ItemAttributes'
+      ,
+        'ItemSearch'
+      ,
+        credentials
+
+      queryParams.should.be.an.Object
+
+  describe 'ItemSearch', ->
+    it 'should use default values', ->
+      queryParams = formatQueryParams({}, 'ItemSearch', credentials)
+
+      queryParams.should.have.property('Condition', 'All');
+      queryParams.should.have.property('Keywords', '');
+      queryParams.should.have.property('ResponseGroup', 'ItemAttributes');
+      queryParams.should.have.property('SearchIndex', 'All');
+      queryParams.should.have.property('ItemPage', '1');
+
+  describe 'ItemLookup', ->
+    it 'should use default values', ->
+      queryParams = formatQueryParams({}, 'ItemLookup', credentials)          
+
+      queryParams.should.have.property('Condition', 'All');
+      queryParams.should.have.property('IdType', 'ASIN');
+      queryParams.should.have.property('IncludeReviewsSummary', 'True');
+      queryParams.should.have.property('ResponseGroup', 'ItemAttributes');
+      queryParams.should.have.property('SearchIndex', 'All');
+      queryParams.should.have.property('TruncateReviewsAt', '1000');
+      queryParams.should.have.property('VariationPage', 'All');
+
+  describe 'BrowseNodeLookup', ->
+    it 'should use default values', ->
+      queryParams = formatQueryParams({}, 'BrowseNodeLookup', credentials)          
+
+      queryParams.should.have.property('ResponseGroup', 'BrowseNodeInfo');
 
 
 describe 'generateQueryString(query, method, credentials)', ->
