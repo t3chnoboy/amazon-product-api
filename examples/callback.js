@@ -11,7 +11,7 @@ client.itemSearch({
   searchIndex: 'DVD',
   responseGroup: 'ItemAttributes,Offers,Images',
   itemPage: '3'
-}, function(err, results) {
+}, function (err, results) {
   if (err) {
     console.log(err);
   } else {

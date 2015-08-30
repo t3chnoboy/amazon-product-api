@@ -10,8 +10,8 @@ client.itemSearch({
   keywords: 'Pulp fiction',
   searchIndex: 'DVD',
   responseGroup: 'ItemAttributes,Offers,Images'
-}).then(function(results) {
+}).then(function (results) {
   console.log(results);
-}).catch(function(err) {
+}).catch(function (err) {
   console.log(err);
 });

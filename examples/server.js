@@ -13,7 +13,7 @@ var client = amazon.createClient({
 });
 
 
-app.get('/amazon/:index', function* (){
+app.get('/amazon/:index', function* () {
   this.body = yield client.itemSearch({
     keywords: this.query.title,
     searchIndex: this.params.index,
