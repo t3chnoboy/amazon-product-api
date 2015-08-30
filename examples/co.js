@@ -7,11 +7,20 @@ var client = amazon.createClient({
   awsSecret: process.env.AWS_SECRET
 });
 
-co(function *(){
+co(function* () {
 
-  pulpFiction   = client.itemSearch({ keywords: 'Pulp fiction',   searchIndex: 'DVD'});
-  killBill      = client.itemSearch({ keywords: 'Kill Bill',      searchIndex: 'DVD'});
-  reservoirDogs = client.itemSearch({ keywords: 'Reservoir Dogs', searchIndex: 'DVD'});
+  pulpFiction = client.itemSearch({
+    keywords: 'Pulp fiction',
+    searchIndex: 'DVD'
+  });
+  killBill = client.itemSearch({
+    keywords: 'Kill Bill',
+    searchIndex: 'DVD'
+  });
+  reservoirDogs = client.itemSearch({
+    keywords: 'Reservoir Dogs',
+    searchIndex: 'DVD'
+  });
 
   movies = yield [pulpFiction, killBill, reservoirDogs];
   console.log(movies);
