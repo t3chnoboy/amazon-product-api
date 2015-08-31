@@ -39,8 +39,7 @@ describe 'formatQueryParams(query, method, credentials)', ->
       queryParams.should.have.property('Condition', 'All');
       queryParams.should.have.property('IdType', 'ASIN');
       queryParams.should.have.property('IncludeReviewsSummary', 'True');
-      queryParams.should.have.property('ResponseGroup', 'ItemAttributes');
-      queryParams.should.have.property('SearchIndex', 'All');
+      queryParams.should.have.property('ResponseGroup', 'ItemAttributes');      
       queryParams.should.have.property('TruncateReviewsAt', '1000');
       queryParams.should.have.property('VariationPage', 'All');
 
