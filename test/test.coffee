@@ -139,3 +139,97 @@ describe 'client.itemSearch(query, cb)', ->
           err.should.be.an.Object
           err.should.have.property 'Error'
           done()
+
+describe 'client.itemLookup(query, cb)', ->
+
+  describe 'when credentials are valid', ->
+    client = amazonProductApi.createClient credentials
+
+    describe 'when no callback is passed', ->
+
+      it 'should return search results from amazon', ->
+        client.itemLookup
+          idType: 'UPC',
+          itemId: '889030012227'
+        .then (results) ->
+          results.should.be.an.Array
+
+      it 'should work with custom domain', ->
+        client.itemLookup
+          idType: 'UPC',
+          itemId: '889030012227'
+        .then (results) ->
+          results.should.be.an.Array
+
+    describe 'when callback is passed', ->
+      it 'should return search results from amazon', ->
+        client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (err, results) ->
+          results.should.be.an.Array
+
+
+  describe 'when credentials are invalid', ->
+    client = amazonProductApi.createClient awsTag: 'sfsadf', awsId: 'sfadf', awsSecret: 'fsg'
+
+    describe 'when no callback is passed', ->
+      it 'should return an error', ->
+        client.itemLookup
+          idType: 'UPC',
+          itemId: '889030012227'
+        .catch (err) ->
+          err.should.be.an.Object
+          err.should.have.property 'Error'
+
+
+    describe 'when callback is passed', ->
+      it 'should return an error', (done) ->
+        client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (err, results) ->
+          err.should.be.an.Object
+          err.should.have.property 'Error'
+          done()
+
+describe 'client.browseNodeLookup(query, cb)', ->
+
+  describe 'when credentials are valid', ->
+    client = amazonProductApi.createClient credentials
+
+    describe 'when no callback is passed', ->
+
+      it 'should return search results from amazon', ->
+        client.browseNodeLookup
+          browseNodeId: '549726',
+          responseGroup: 'NewReleases'
+        .then (results) ->
+          results.should.be.an.Array
+
+      it 'should work with custom domain', ->
+        client.browseNodeLookup
+          browseNodeId: '549726',
+          responseGroup: 'NewReleases'
+        .then (results) ->
+          results.should.be.an.Array
+
+    describe 'when callback is passed', ->
+      it 'should return search results from amazon', ->
+        client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (err, results) ->
+          results.should.be.an.Array
+
+
+  describe 'when credentials are invalid', ->
+    client = amazonProductApi.createClient awsTag: 'sfsadf', awsId: 'sfadf', awsSecret: 'fsg'
+
+    describe 'when no callback is passed', ->
+      it 'should return an error', ->
+        client.browseNodeLookup
+          browseNodeId: '549726',
+          responseGroup: 'NewReleases'
+        .catch (err) ->
+          err.should.be.an.Object
+          err.should.have.property 'Error'
+
+
+    describe 'when callback is passed', ->
+      it 'should return an error', (done) ->
+        client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (err, results) ->
+          err.should.be.an.Object
+          err.should.have.property 'Error'
+          done()
