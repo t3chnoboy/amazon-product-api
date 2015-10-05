@@ -187,6 +187,24 @@ describe 'client.itemLookup(query, cb)', ->
           err.should.have.property 'Error'
           done()
 
+
+  describe 'when the request returns an error', ->
+    client = amazonProductApi.createClient credentials
+
+    describe 'when no callback is passed', ->
+      it 'should return the errors inside the request node', ->
+        client.itemLookup
+          idType: 'ASIN',
+          itemId: 'B00QTDTUVM'
+        .catch (err) ->
+          err.should.be.an.Array
+
+    describe 'when callback is passed', ->
+      it 'should return the errors inside the request node', ->
+        client.itemLookup {idType: 'ASIN', itemId: 'B00QTDTUVM'}, (err, results) ->
+          err.should.be.an.Array
+          results.should.be.an.Array
+
 describe 'client.browseNodeLookup(query, cb)', ->
 
   describe 'when credentials are valid', ->
