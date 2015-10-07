@@ -34,18 +34,18 @@ describe 'formatQueryParams(query, method, credentials)', ->
 
   describe 'ItemLookup', ->
     it 'should use default values', ->
-      queryParams = formatQueryParams({}, 'ItemLookup', credentials)          
+      queryParams = formatQueryParams({}, 'ItemLookup', credentials)
 
       queryParams.should.have.property('Condition', 'All');
       queryParams.should.have.property('IdType', 'ASIN');
       queryParams.should.have.property('IncludeReviewsSummary', 'True');
-      queryParams.should.have.property('ResponseGroup', 'ItemAttributes');      
+      queryParams.should.have.property('ResponseGroup', 'ItemAttributes');
       queryParams.should.have.property('TruncateReviewsAt', '1000');
       queryParams.should.have.property('VariationPage', 'All');
 
   describe 'BrowseNodeLookup', ->
     it 'should use default values', ->
-      queryParams = formatQueryParams({}, 'BrowseNodeLookup', credentials)          
+      queryParams = formatQueryParams({}, 'BrowseNodeLookup', credentials)
 
       queryParams.should.have.property('ResponseGroup', 'BrowseNodeInfo');
 
@@ -53,7 +53,6 @@ describe 'formatQueryParams(query, method, credentials)', ->
 describe 'generateQueryString(query, method, credentials)', ->
 
     it 'should return a string', ->
-
       queryString = generateQueryString
         keywords: 'Game of Thrones'
         searchIndex: 'DVD'
@@ -95,7 +94,6 @@ describe 'client.itemSearch(query, cb)', ->
     client = amazonProductApi.createClient credentials
 
     describe 'when no callback is passed', ->
-
       it 'should return search results from amazon', ->
         client.itemSearch
           keywords: 'Pulp fiction'
@@ -146,7 +144,6 @@ describe 'client.itemLookup(query, cb)', ->
     client = amazonProductApi.createClient credentials
 
     describe 'when no callback is passed', ->
-
       it 'should return search results from amazon', ->
         client.itemLookup
           idType: 'UPC',
@@ -203,7 +200,6 @@ describe 'client.itemLookup(query, cb)', ->
       it 'should return the errors inside the request node', ->
         client.itemLookup {idType: 'ASIN', itemId: 'B00QTDTUVM'}, (err, results) ->
           err.should.be.an.Array
-          results.should.be.an.Array
 
 describe 'client.browseNodeLookup(query, cb)', ->
 
@@ -211,7 +207,6 @@ describe 'client.browseNodeLookup(query, cb)', ->
     client = amazonProductApi.createClient credentials
 
     describe 'when no callback is passed', ->
-
       it 'should return search results from amazon', ->
         client.browseNodeLookup
           browseNodeId: '549726',
