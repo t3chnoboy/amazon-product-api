@@ -82,9 +82,11 @@ describe 'generateQueryString(query, method, credentials)', ->
 
 
 describe 'createClient(credentials)', ->
-  it 'should return amazon product api client with item search method', ->
+  it 'should return amazon product api client with available methods', ->
     client = amazonProductApi.createClient credentials
     client.should.have.property 'itemSearch'
+    client.should.have.property 'itemLookup'
+    client.should.have.property 'browseNodeLookup'
     client.itemSearch.should.be.a.Function
 
 
