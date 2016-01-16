@@ -19,7 +19,7 @@
   "author": "Dmitry Mazuro <dmitry.mazuro@icloud.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "es6-promise": "^2.0.1",
+    "es6-promise": "^3.0.2",
     "xml2js": "^0.4.5",
     "request": "^2.53.0"
   },
