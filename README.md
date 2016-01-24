@@ -14,6 +14,11 @@ Install using npm:
 npm install amazon-product-api
 ```
 
+Install in Meteor:
+```sh
+meteor add quackware:amazon-product-api
+```
+
 ## Usage
 
 Require library
