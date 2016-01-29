@@ -8,17 +8,15 @@ Node.js client for [Amazon Product Advertising API](https://affiliate-program.am
 
 [![NPM](https://nodei.co/npm/amazon-product-api.png?downloads=true)](https://nodei.co/npm/amazon-product-api/) 
 
-The major differences between this project and other implementations are:
-
-  1. Item search can return an [EcmaScript6 promise](https://github.com/domenic/promises-unwrapping). (Check out a great article about [ES6 promises](http://www.html5rocks.com/en/tutorials/es6/promises/))  
-  2. Item search is ["yieldable"](https://github.com/visionmedia/co#yieldables). So it plays well with fantastic next-gen libs such as [Koa](https://github.com/koajs/koa) and [Co](https://github.com/visionmedia/co). See [example](https://github.com/t3chnoboy/apac2#setup-your-own-server-that-doesnt-require-signatures-and-timestamp-and-returns-json)  
-   
-
-
 ## Installation
 Install using npm:
 ```sh
 npm install amazon-product-api
+```
+
+Install in Meteor:
+```sh
+meteor add quackware:amazon-product-api
 ```
 
 ## Usage
