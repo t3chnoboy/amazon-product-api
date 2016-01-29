@@ -196,7 +196,7 @@ client.browseNodeLookup({
 
 using a callback:
 ```javascript
-client.itemLookup({
+client.browseNodeLookup({
   browseNodeId: '549726',
   responseGroup: 'NewReleases'
 }, function(err, results) {
