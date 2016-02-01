@@ -4,9 +4,9 @@
 
 Node.js client for [Amazon Product Advertising API](https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html)
 ![alt text](http://i.imgur.com/MwfPRfB.gif "Logo Title Text 1")
- 
 
-[![NPM](https://nodei.co/npm/amazon-product-api.png?downloads=true)](https://nodei.co/npm/amazon-product-api/) 
+
+[![NPM](https://nodei.co/npm/amazon-product-api.png?downloads=true)](https://nodei.co/npm/amazon-product-api/)
 
 ## Installation
 Install using npm:
@@ -41,7 +41,7 @@ Now you can search for items on amazon:
 
 using promises:
 ```javascript
-client.itemSearch({  
+client.itemSearch({
   director: 'Quentin Tarantino',
   actor: 'Samuel L. Jackson',
   searchIndex: 'DVD',
@@ -62,11 +62,12 @@ client.itemSearch({
   searchIndex: 'DVD',
   audienceRating: 'R',
   responseGroup: 'ItemAttributes,Offers,Images'
-}, function(err, results) {
+}, function(err, results, response) {
   if (err) {
     console.log(err);
   } else {
-    console.log(results);
+    console.log(results);  // products
+    console.log(response); // response (containing TotalPages, TotalResults, MoreSearchResultsUrl and so on)
   }
 });
 ```
@@ -91,12 +92,12 @@ co(function *(){
 
 You can add any [available params](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) for the *itemSearch* method.
 
-[condition:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) availiable options - 'All', 'New', 'Used', 'Refurbished', 'Collectible'. Defaults to 'All'  
-[keywords:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) Defaults to ''  
-[responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'ItemAttributes,Offers,Images'). Defaults to'ItemAttributes'  
-[searchIndex:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/USSearchIndexParamForItemsearch.html) Defaults to 'All'.  
-[itemPage:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) Defaults to '1'.  
-sort: Valid values include 'salesrank','psrank','titlerank','-price','price'.  
+[condition:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) availiable options - 'All', 'New', 'Used', 'Refurbished', 'Collectible'. Defaults to 'All'
+[keywords:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) Defaults to ''
+[responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'ItemAttributes,Offers,Images'). Defaults to'ItemAttributes'
+[searchIndex:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/USSearchIndexParamForItemsearch.html) Defaults to 'All'.
+[itemPage:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) Defaults to '1'.
+sort: Valid values include 'salesrank','psrank','titlerank','-price','price'.
 domain: Defaults to 'webservices.amazon.com'.
 
 ## Example
@@ -128,9 +129,9 @@ app.get('/amazon/:index', function* (){
 app.listen(3000);
 ```
 
-Working demo:  
-[Search for Alien DVDs](http://watchlist-koa.herokuapp.com/amazon/DVD?title=alien)  
-[Search for Streets of Rage videogame](http://watchlist-koa.herokuapp.com/amazon/VideoGames?title=streets%20of%20rage)  
+Working demo:
+[Search for Alien DVDs](http://watchlist-koa.herokuapp.com/amazon/DVD?title=alien)
+[Search for Streets of Rage videogame](http://watchlist-koa.herokuapp.com/amazon/VideoGames?title=streets%20of%20rage)
 [Search for shoes](http://watchlist-koa.herokuapp.com/amazon/Shoes?title=nike%20nevis)
 
 
@@ -155,7 +156,7 @@ client.itemLookup({
   idType: 'UPC',
   itemId: '635753490879',
   responseGroup: 'ItemAttributes,Offers,Images'
-}, function(err, results) {
+}, function(err, results, response) {
   if (err) {
     console.log(err);
   } else {
@@ -168,14 +169,14 @@ client.itemLookup({
 
 You can add any [available params](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) for the *ItemLookup* method.
 
-[condition:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) availiable options - 'All', 'New', 'Used', 'Refurbished', 'Collectible'. Defaults to 'All'  
-[idType:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) Type of item identifier used to look up an item. Availiable options - 'ASIN', 'SKU', 'UPC', 'EAN', 'ISBN'. Defaults to 'ASIN'.  
-[includeReviewsSummary:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) availiable options - 'True','False'. Defaults to 'True'.  
-[itemId:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) One or more (up to ten) positive integers that uniquely identify an item.  
-[responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'ItemAttributes,Offers,Images'). Defaults to'ItemAttributes'  
-[searchIndex:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/USSearchIndexParamForItemsearch.html) Defaults to 'All'.  
-[truncateReviewsAt:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) Defaults to '1000'. To return complete reviews, specify '0'.  
-[variationPage:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) Defaults to 'All'.  
+[condition:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) availiable options - 'All', 'New', 'Used', 'Refurbished', 'Collectible'. Defaults to 'All'
+[idType:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) Type of item identifier used to look up an item. Availiable options - 'ASIN', 'SKU', 'UPC', 'EAN', 'ISBN'. Defaults to 'ASIN'.
+[includeReviewsSummary:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) availiable options - 'True','False'. Defaults to 'True'.
+[itemId:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) One or more (up to ten) positive integers that uniquely identify an item.
+[responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'ItemAttributes,Offers,Images'). Defaults to'ItemAttributes'
+[searchIndex:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/USSearchIndexParamForItemsearch.html) Defaults to 'All'.
+[truncateReviewsAt:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) Defaults to '1000'. To return complete reviews, specify '0'.
+[variationPage:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) Defaults to 'All'.
 domain: Defaults to 'webservices.amazon.com'.
 
 
@@ -199,7 +200,7 @@ using a callback:
 client.itemLookup({
   browseNodeId: '549726',
   responseGroup: 'NewReleases'
-}, function(err, results) {
+}, function(err, results, response) {
   if (err) {
     console.log(err);
   } else {
@@ -214,4 +215,4 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 
 [browseNodeId:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html) A positive integer assigned by Amazon that uniquely identifies a product category.
 
-[responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'MostGifted,NewReleases,MostWishedFor,TopSellers'). Defaults to 'BrowseNodeInfo'  
+[responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'MostGifted,NewReleases,MostWishedFor,TopSellers'). Defaults to 'BrowseNodeInfo'
