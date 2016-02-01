@@ -113,8 +113,11 @@ describe 'client.itemSearch(query, cb)', ->
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
-        client.itemSearch {keywords: 'Pulp fiction', searchIndex: 'DVD', responseGroup: 'Offers'}, (err, results) ->
+        client.itemSearch {keywords: 'Pulp fiction', searchIndex: 'DVD', responseGroup: 'Offers'}, (err, results, response) ->
           results.should.be.an.Array
+          response.should.be.an.Object
+          response.should.have.property 'TotalResults'
+          response.should.have.property 'TotalPages'
 
 
   describe 'when credentials are invalid', ->
@@ -160,8 +163,9 @@ describe 'client.itemLookup(query, cb)', ->
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
-        client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (err, results) ->
+        client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (err, results, response) ->
           results.should.be.an.Array
+          response.should.be.an.Object
 
 
   describe 'when credentials are invalid', ->
@@ -179,7 +183,7 @@ describe 'client.itemLookup(query, cb)', ->
 
     describe 'when callback is passed', ->
       it 'should return an error', (done) ->
-        client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (err, results) ->
+        client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (err, results, response) ->
           err.should.be.an.Object
           err.should.have.property 'Error'
           done()
@@ -223,8 +227,9 @@ describe 'client.browseNodeLookup(query, cb)', ->
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
-        client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (err, results) ->
+        client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (err, results, response) ->
           results.should.be.an.Array
+          response.should.be.an.Object
 
 
   describe 'when credentials are invalid', ->
