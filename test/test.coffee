@@ -251,3 +251,24 @@ describe 'client.browseNodeLookup(query, cb)', ->
           err.should.be.an.Object
           err.should.have.property 'Error'
           done()
+
+  describe 'when the request returns an error', ->
+    client = amazonProductApi.createClient credentials
+
+    describe 'when no callback is passed', ->
+      it 'should return the errors inside the request node', ->
+        client.browseNodeLookup
+          browseNodeId: '102340',
+          responseGroup: 'NewReleases'
+        .catch (err) =>
+          err.should.be.an.Array
+          err[0].should.be.an.Object
+          err[0].should.have.property 'Error'
+
+    describe 'when callback is passed', ->
+      it 'should return the errors inside the request node', ->
+        client.browseNodeLookup {browseNodeId: '102340', responseGroup: 'NewReleases'}, (err, results) ->
+          err.should.be.an.Array
+          err[0].should.be.an.Object
+          err[0].should.have.property 'Error'
+          done()
