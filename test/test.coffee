@@ -271,4 +271,14 @@ describe 'client.browseNodeLookup(query, cb)', ->
           err.should.be.an.Array
           err[0].should.be.an.Object
           err[0].should.have.property 'Error'
-          done()
+
+  describe 'escape rfc 3986 reserved chars', ->
+    client = amazonProductApi.createClient credentials
+
+    it 'should return search results from amazon', ->
+      client.itemSearch
+        keywords: "Ender's Game"
+        searchIndex: 'DVD'
+        responseGroup: 'Offers'
+      .then (results) ->
+        results.should.be.an.Array
