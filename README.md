@@ -216,3 +216,17 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 [browseNodeId:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeLookup.html) A positive integer assigned by Amazon that uniquely identifies a product category.
 
 [responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'MostGifted,NewReleases,MostWishedFor,TopSellers'). Defaults to 'BrowseNodeInfo'
+
+### Passing a custom `request`
+
+You can pass a custom `request` function to be used, for example if you are throttling requests.
+
+```javascript
+var request = require('request');
+var throttledRequest = require('throttled-request')(request);
+
+client.itemSearch({
+  request: throttledRequest
+  // ...
+});
+```
