@@ -118,9 +118,12 @@ describe 'client.itemSearch(query, cb)', ->
       it 'should return search results from amazon', ->
         client.itemSearch {keywords: 'Pulp fiction', searchIndex: 'DVD', responseGroup: 'Offers'}, (err, results, response) ->
           results.should.be.an.Array
-          response.should.be.an.Object
-          response.should.have.property 'TotalResults'
-          response.should.have.property 'TotalPages'
+          response.should.be.an.Array
+          response[0].should.be.an.Object
+          response[0].should.have.property 'Request'
+          response[0]['Request'].should.be.an.Array
+          response[0]['Request'][0].should.have.property('IsValid', ["True"])
+          response[0]['Request'][0].should.have.property 'ItemSearchRequest'
 
 
   describe 'when credentials are invalid', ->
@@ -136,13 +139,13 @@ describe 'client.itemSearch(query, cb)', ->
           err.should.be.an.Object
           err.should.have.property 'Error'
 
-
     describe 'when callback is passed', ->
       it 'should return an error', (done) ->
         client.itemSearch {keywords: 'Pulp fiction', searchIndex: 'DVD', responseGroup: 'Offers'}, (err, results) ->
           err.should.be.an.Object
           err.should.have.property 'Error'
           done()
+
 
 describe 'client.itemLookup(query, cb)', ->
 
@@ -168,7 +171,12 @@ describe 'client.itemLookup(query, cb)', ->
       it 'should return search results from amazon', ->
         client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (err, results, response) ->
           results.should.be.an.Array
-          response.should.be.an.Object
+          response.should.be.an.Array
+          response[0].should.be.an.Object
+          response[0].should.have.property 'Request'
+          response[0]['Request'].should.be.an.Array
+          response[0]['Request'][0].should.have.property('IsValid', ["True"])
+          response[0]['Request'][0].should.have.property 'ItemLookupRequest'
 
 
   describe 'when credentials are invalid', ->
@@ -182,7 +190,6 @@ describe 'client.itemLookup(query, cb)', ->
         .catch (err) ->
           err.should.be.an.Object
           err.should.have.property 'Error'
-
 
     describe 'when callback is passed', ->
       it 'should return an error', (done) ->
@@ -208,6 +215,7 @@ describe 'client.itemLookup(query, cb)', ->
         client.itemLookup {idType: 'ASIN', itemId: 'B00QTDTUVM'}, (err, results) ->
           err.should.be.an.Array
 
+
 describe 'client.browseNodeLookup(query, cb)', ->
 
   describe 'when credentials are valid', ->
@@ -231,8 +239,14 @@ describe 'client.browseNodeLookup(query, cb)', ->
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
         client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (err, results, response) ->
+
           results.should.be.an.Array
-          response.should.be.an.Object
+          response.should.be.an.Array
+          response[0].should.be.an.Object
+          response[0].should.have.property 'Request'
+          response[0]['Request'].should.be.an.Array
+          response[0]['Request'][0].should.have.property('IsValid', ["True"])
+          response[0]['Request'][0].should.have.property 'BrowseNodeLookupRequest'
 
 
   describe 'when credentials are invalid', ->
@@ -247,13 +261,13 @@ describe 'client.browseNodeLookup(query, cb)', ->
           err.should.be.an.Object
           err.should.have.property 'Error'
 
-
     describe 'when callback is passed', ->
       it 'should return an error', (done) ->
         client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (err, results) ->
           err.should.be.an.Object
           err.should.have.property 'Error'
           done()
+
 
   describe 'when the request returns an error', ->
     client = amazonProductApi.createClient credentials
@@ -275,7 +289,8 @@ describe 'client.browseNodeLookup(query, cb)', ->
           err[0].should.be.an.Object
           err[0].should.have.property 'Error'
 
-  describe 'escape rfc 3986 reserved chars', ->
+
+describe 'escape rfc 3986 reserved chars', ->
     client = amazonProductApi.createClient credentials
 
     it 'should return search results from amazon', ->
