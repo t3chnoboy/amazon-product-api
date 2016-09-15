@@ -23,7 +23,7 @@ describe 'formatQueryParams(query, method, credentials)', ->
       queryParams.should.be.an.Object
 
   describe 'ItemSearch', ->
-    it 'should use default values', ->
+    it 'should use default values and constants', ->
       queryParams = formatQueryParams({}, 'ItemSearch', credentials)
 
       queryParams.should.have.property('Condition', 'All');
@@ -31,9 +31,10 @@ describe 'formatQueryParams(query, method, credentials)', ->
       queryParams.should.have.property('ResponseGroup', 'ItemAttributes');
       queryParams.should.have.property('SearchIndex', 'All');
       queryParams.should.have.property('ItemPage', '1');
+      queryParams.should.have.property('Version', '2013-08-01');
 
   describe 'ItemLookup', ->
-    it 'should use default values', ->
+    it 'should use default values and constants', ->
       queryParams = formatQueryParams({}, 'ItemLookup', credentials)
 
       queryParams.should.have.property('Condition', 'All');
@@ -42,12 +43,14 @@ describe 'formatQueryParams(query, method, credentials)', ->
       queryParams.should.have.property('ResponseGroup', 'ItemAttributes');
       queryParams.should.have.property('TruncateReviewsAt', '1000');
       queryParams.should.have.property('VariationPage', 'All');
+      queryParams.should.have.property('Version', '2013-08-01');
 
   describe 'BrowseNodeLookup', ->
-    it 'should use default values', ->
+    it 'should use default values and constants', ->
       queryParams = formatQueryParams({}, 'BrowseNodeLookup', credentials)
 
       queryParams.should.have.property('ResponseGroup', 'BrowseNodeInfo');
+      queryParams.should.have.property('Version', '2013-08-01');
 
 
 describe 'generateQueryString(query, method, credentials)', ->
