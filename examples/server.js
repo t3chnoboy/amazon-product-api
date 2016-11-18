@@ -3,7 +3,7 @@ var amazon = require('../'),
   router = require('koa-router');
 
 var app = koa();
-app.use(router(app));
+var api = router();
 
 
 var client = amazon.createClient({
@@ -20,5 +20,9 @@ app.get('/amazon/:index', function* () {
     responseGroup: 'ItemAttributes,Offers,Images'
   });
 });
+
+app
+  .use(api.routes())
+  .use(api.allowedMethods());
 
 app.listen(3000);
