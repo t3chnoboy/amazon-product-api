@@ -38,7 +38,7 @@ describe 'client.itemSearch(query, cb)', ->
       nock('https://webservices.amazon.com')
         .get('/onca/xml')
         .query(true)
-        .replyWithFile(200, fixturePath('itemSearchResponse'))
+        .replyWithFile(200, fixturePath('ItemSearchResponse'))
 
     describe 'when no callback is passed', ->
       it 'should return search results from amazon', () ->
