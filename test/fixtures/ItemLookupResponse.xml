@@ -3,8 +3,8 @@
    <OperationRequest>
       <RequestId>be1d236c-e38b-476b-bd1a-49fca68d7785</RequestId>
       <Arguments>
-         <Argument Name="AWSAccessKeyId" Value="AKIAJER2WUDO6DFHVFUQ" />
-         <Argument Name="AssociateTag" Value="simonthibouto-20" />
+         <Argument Name="AWSAccessKeyId" Value="fake-aws-access-key-id" />
+         <Argument Name="AssociateTag" Value="fake-associate-tag" />
          <Argument Name="Condition" Value="All" />
          <Argument Name="IdType" Value="UPC" />
          <Argument Name="IncludeReviewsSummary" Value="True" />
@@ -37,35 +37,35 @@
       </Request>
       <Item>
          <ASIN>B00V9MQZRU</ASIN>
-         <DetailPageURL>https://www.amazon.com/Colour-Jamie-xx/dp/B00V9MQZRU%3FSubscriptionId%3DAKIAJER2WUDO6DFHVFUQ%26tag%3Dsimonthibouto-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00V9MQZRU</DetailPageURL>
+         <DetailPageURL>https://www.amazon.com/Colour-Jamie-xx/dp/B00V9MQZRU%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00V9MQZRU</DetailPageURL>
          <ItemLinks>
             <ItemLink>
                <Description>Technical Details</Description>
-               <URL>https://www.amazon.com/Colour-Jamie-xx/dp/tech-data/B00V9MQZRU%3FSubscriptionId%3DAKIAJER2WUDO6DFHVFUQ%26tag%3Dsimonthibouto-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+               <URL>https://www.amazon.com/Colour-Jamie-xx/dp/tech-data/B00V9MQZRU%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
             </ItemLink>
             <ItemLink>
                <Description>Add To Baby Registry</Description>
-               <URL>https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00V9MQZRU%26SubscriptionId%3DAKIAJER2WUDO6DFHVFUQ%26tag%3Dsimonthibouto-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+               <URL>https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00V9MQZRU%26SubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
             </ItemLink>
             <ItemLink>
                <Description>Add To Wedding Registry</Description>
-               <URL>https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00V9MQZRU%26SubscriptionId%3DAKIAJER2WUDO6DFHVFUQ%26tag%3Dsimonthibouto-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+               <URL>https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00V9MQZRU%26SubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
             </ItemLink>
             <ItemLink>
                <Description>Add To Wishlist</Description>
-               <URL>https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00V9MQZRU%26SubscriptionId%3DAKIAJER2WUDO6DFHVFUQ%26tag%3Dsimonthibouto-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+               <URL>https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00V9MQZRU%26SubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
             </ItemLink>
             <ItemLink>
                <Description>Tell A Friend</Description>
-               <URL>https://www.amazon.com/gp/pdp/taf/B00V9MQZRU%3FSubscriptionId%3DAKIAJER2WUDO6DFHVFUQ%26tag%3Dsimonthibouto-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+               <URL>https://www.amazon.com/gp/pdp/taf/B00V9MQZRU%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
             </ItemLink>
             <ItemLink>
                <Description>All Customer Reviews</Description>
-               <URL>https://www.amazon.com/review/product/B00V9MQZRU%3FSubscriptionId%3DAKIAJER2WUDO6DFHVFUQ%26tag%3Dsimonthibouto-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+               <URL>https://www.amazon.com/review/product/B00V9MQZRU%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
             </ItemLink>
             <ItemLink>
                <Description>All Offers</Description>
-               <URL>https://www.amazon.com/gp/offer-listing/B00V9MQZRU%3FSubscriptionId%3DAKIAJER2WUDO6DFHVFUQ%26tag%3Dsimonthibouto-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+               <URL>https://www.amazon.com/gp/offer-listing/B00V9MQZRU%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
             </ItemLink>
          </ItemLinks>
          <ItemAttributes>
