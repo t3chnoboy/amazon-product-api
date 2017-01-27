@@ -1,226 +1,186 @@
+nock = require 'nock'
+helper = require './support/testHelper'
 amazonProductApi = require '../lib/index'
 
-credentials =
-  awsTag: process.env.AWS_TAG
-  awsId: process.env.AWS_ID
-  awsSecret: process.env.AWS_SECRET
+fixturePath = helper.fixturePath
+
+createClient = () ->
+  client = amazonProductApi.createClient
+    awsTag: 'FAKE_AWS_TAG'
+    awsId: 'FAKE_AWS_ID'
+    awsSecret: 'FAKE_AWS_SECRET'
 
 
 describe "amazon-product-api", ->
 
   describe 'createClient(credentials)', ->
     it 'should return amazon product api client with item search method', ->
-      client = amazonProductApi.createClient credentials
-      client.should.have.property 'itemSearch'
+      client = createClient()
       client.itemSearch.should.be.a.Function
+      client.itemLookup.should.be.a.Function
+      client.browseNodeLookup.should.be.a.Function
 
 
-  describe 'client.itemSearch(query, cb)', ->
+describe 'client.itemSearch(query, cb)', ->
+  client = null
+  query = null
 
-    describe 'when credentials are valid', ->
-      client = amazonProductApi.createClient credentials
+  beforeEach ->
+    client = createClient()
+    query =
+      keywords: 'Pulp fiction'
+      searchIndex: 'DVD'
+      responseGroup: 'Offers'
 
-      describe 'when no callback is passed', ->
-        it 'should return search results from amazon', ->
-          client.itemSearch
-            keywords: 'Pulp fiction'
-            searchIndex: 'DVD'
-            responseGroup: 'Offers'
+  describe 'when credentials are valid', ->
+
+    beforeEach ->
+      nock('https://webservices.amazon.com')
+        .get('/onca/xml')
+        .query(true)
+        .replyWithFile(200, fixturePath('itemSearchResponse'))
+
+    describe 'when no callback is passed', ->
+      it 'should return search results from amazon', () ->
+        client.itemSearch(query)
           .then (results) ->
             results.should.be.an.Array
 
-        it 'should work with custom domain', ->
-          client.itemSearch
-            keywords: 'Pulp fiction'
-            searchIndex: 'DVD'
-            responseGroup: 'Offers'
-            domain: 'webservices.amazon.co.uk'
-          .then (results) ->
-            results.should.be.an.Array
-
-      describe 'when callback is passed', ->
-        it 'should return search results from amazon', ->
-          client.itemSearch {keywords: 'Pulp fiction', searchIndex: 'DVD', responseGroup: 'Offers'}, (err, results, response) ->
-            results.should.be.an.Array
-            response.should.be.an.Array
-            response[0].should.be.an.Object
-            response[0].should.have.property 'Request'
-            response[0]['Request'].should.be.an.Array
-            response[0]['Request'][0].should.have.property('IsValid', ["True"])
-            response[0]['Request'][0].should.have.property 'ItemSearchRequest'
+    describe 'when callback is passed', ->
+      it 'should return search results from amazon', (done) ->
+        client.itemSearch query, (error, results, response) ->
+          (error == null).should.be.true
+          results.should.be.an.Array
+          response.should.be.an.Array
+          done()
 
 
-    describe 'when credentials are invalid', ->
-      client = amazonProductApi.createClient awsTag: 'sfsadf', awsId: 'sfadf', awsSecret: 'fsg'
+  describe 'when credentials are invalid', ->
 
-      describe 'when no callback is passed', ->
-        it 'should return an error', ->
-          client.itemSearch
-            keywords: 'Pulp fiction'
-            searchIndex: 'DVD'
-            responseGroup: 'Offers'
+    beforeEach ->
+      nock('https://webservices.amazon.com')
+        .get('/onca/xml')
+        .query(true)
+        .replyWithFile(403, fixturePath('ItemSearchErrorResponse'))
+
+    describe 'when no callback is passed', ->
+      it 'should return an error', () ->
+        client.itemSearch(query)
           .catch (err) ->
             err.should.be.an.Object
             err.should.have.property 'Error'
 
-      describe 'when callback is passed', ->
-        it 'should return an error', (done) ->
-          client.itemSearch {keywords: 'Pulp fiction', searchIndex: 'DVD', responseGroup: 'Offers'}, (err, results) ->
-            err.should.be.an.Object
-            err.should.have.property 'Error'
-            done()
+    describe 'when callback is passed', ->
+      it 'should return an error', (done) ->
+        client.itemSearch query, (err, results) ->
+          err.should.be.an.Object
+          err.should.have.property 'Error'
+          done()
 
 
-  describe 'client.itemLookup(query, cb)', ->
+describe 'client.itemLookup(query, cb)', ->
+  client = null
+  query = null
 
-    describe 'when credentials are valid', ->
-      client = amazonProductApi.createClient credentials
+  beforeEach ->
+    client = createClient()
+    query =
+      idType: 'UPC',
+      itemId: '889030012227'
 
-      describe 'when no callback is passed', ->
-        it 'should return search results from amazon', ->
-          client.itemLookup
-            idType: 'UPC',
-            itemId: '889030012227'
-          .then (results) ->
-            results.should.be.an.Array
+  describe 'when credentials are valid', ->
 
-        it 'should work with custom domain', ->
-          client.itemLookup
-            idType: 'UPC',
-            itemId: '889030012227'
-          .then (results) ->
-            results.should.be.an.Array
+    beforeEach ->
+      nock('https://webservices.amazon.com')
+        .get('/onca/xml')
+        .query(true)
+        .replyWithFile(200, fixturePath('ItemLookupResponse'))
 
-      describe 'when callback is passed', ->
-        it 'should return search results from amazon', ->
-          client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (err, results, response) ->
-            results.should.be.an.Array
-            response.should.be.an.Array
-            response[0].should.be.an.Object
-            response[0].should.have.property 'Request'
-            response[0]['Request'].should.be.an.Array
-            response[0]['Request'][0].should.have.property('IsValid', ["True"])
-            response[0]['Request'][0].should.have.property 'ItemLookupRequest'
-
-
-    describe 'when credentials are invalid', ->
-      client = amazonProductApi.createClient awsTag: 'sfsadf', awsId: 'sfadf', awsSecret: 'fsg'
-
-      describe 'when no callback is passed', ->
-        it 'should return an error', ->
-          client.itemLookup
-            idType: 'UPC',
-            itemId: '889030012227'
-          .catch (err) ->
-            err.should.be.an.Object
-            err.should.have.property 'Error'
-
-      describe 'when callback is passed', ->
-        it 'should return an error', (done) ->
-          client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (err, results, response) ->
-            err.should.be.an.Object
-            err.should.have.property 'Error'
-            done()
-
-
-    describe 'when the request returns an error', ->
-      client = amazonProductApi.createClient credentials
-
-      describe 'when no callback is passed', ->
-        it 'should return the errors inside the request node', ->
-          client.itemLookup
-            idType: 'ASIN',
-            itemId: 'B00QTDTUVM'
-          .catch (err) ->
-            err.should.be.an.Array
-
-      describe 'when callback is passed', ->
-        it 'should return the errors inside the request node', ->
-          client.itemLookup {idType: 'ASIN', itemId: 'B00QTDTUVM'}, (err, results) ->
-            err.should.be.an.Array
-
-
-  describe 'client.browseNodeLookup(query, cb)', ->
-
-    describe 'when credentials are valid', ->
-      client = amazonProductApi.createClient credentials
-
-      describe 'when no callback is passed', ->
-        it 'should return search results from amazon', ->
-          client.browseNodeLookup
-            browseNodeId: '549726',
-            responseGroup: 'NewReleases'
-          .then (results) ->
-            results.should.be.an.Array
-
-        it 'should work with custom domain', ->
-          client.browseNodeLookup
-            browseNodeId: '549726',
-            responseGroup: 'NewReleases'
-          .then (results) ->
-            results.should.be.an.Array
-
-      describe 'when callback is passed', ->
-        it 'should return search results from amazon', ->
-          client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (err, results, response) ->
-
-            results.should.be.an.Array
-            response.should.be.an.Array
-            response[0].should.be.an.Object
-            response[0].should.have.property 'Request'
-            response[0]['Request'].should.be.an.Array
-            response[0]['Request'][0].should.have.property('IsValid', ["True"])
-            response[0]['Request'][0].should.have.property 'BrowseNodeLookupRequest'
-
-
-    describe 'when credentials are invalid', ->
-      client = amazonProductApi.createClient awsTag: 'sfsadf', awsId: 'sfadf', awsSecret: 'fsg'
-
-      describe 'when no callback is passed', ->
-        it 'should return an error', ->
-          client.browseNodeLookup
-            browseNodeId: '549726',
-            responseGroup: 'NewReleases'
-          .catch (err) ->
-            err.should.be.an.Object
-            err.should.have.property 'Error'
-
-      describe 'when callback is passed', ->
-        it 'should return an error', (done) ->
-          client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (err, results) ->
-            err.should.be.an.Object
-            err.should.have.property 'Error'
-            done()
-
-
-    describe 'when the request returns an error', ->
-      client = amazonProductApi.createClient credentials
-
-      describe 'when no callback is passed', ->
-        it 'should return the errors inside the request node', ->
-          client.browseNodeLookup
-            browseNodeId: '102340',
-            responseGroup: 'NewReleases'
-          .catch (err) =>
-            err.should.be.an.Array
-            err[0].should.be.an.Object
-            err[0].should.have.property 'Error'
-
-      describe 'when callback is passed', ->
-        it 'should return the errors inside the request node', ->
-          client.browseNodeLookup {browseNodeId: '102340', responseGroup: 'NewReleases'}, (err, results) ->
-            err.should.be.an.Array
-            err[0].should.be.an.Object
-            err[0].should.have.property 'Error'
-
-
-  describe 'escape rfc 3986 reserved chars', ->
-      client = amazonProductApi.createClient credentials
-
-      it 'should return search results from amazon', ->
-        client.itemSearch
-          keywords: "Ender's Game"
-          searchIndex: 'DVD'
-          responseGroup: 'Offers'
+    describe 'when no callback is passed', ->
+      it 'should return search results from amazon', () ->
+        client.itemLookup(query)
         .then (results) ->
           results.should.be.an.Array
+
+    describe 'when callback is passed', ->
+      it 'should return search results from amazon', (done) ->
+        client.itemLookup query, (err, results, response) ->
+          results.should.be.an.Array
+          response.should.be.an.Array
+          done()
+
+  describe 'when credentials are invalid', ->
+
+    beforeEach ->
+      nock('https://webservices.amazon.com')
+        .get('/onca/xml')
+        .query(true)
+        .replyWithFile(403, fixturePath('ItemLookupErrorResponse'))
+
+    describe 'when no callback is passed', ->
+      it 'should return an error', () ->
+        client.itemLookup(query)
+        .catch (error) ->
+          error.should.be.an.Object
+          error.should.have.property 'Error'
+
+    describe 'when callback is passed', ->
+      it 'should return an error', (done) ->
+        client.itemLookup query, (error, results, response) ->
+          error.should.be.an.Object
+          error.should.have.property 'Error'
+          done()
+
+
+describe 'client.browseNodeLookup(query, cb)', ->
+  client = null
+  query = null
+
+  beforeEach ->
+    client = createClient()
+    query =
+      browseNodeId: '549726',
+      responseGroup: 'NewReleases'
+
+  describe 'when credentials are valid', ->
+
+    beforeEach ->
+      nock('https://webservices.amazon.com')
+        .get('/onca/xml')
+        .query(true)
+        .replyWithFile(200, fixturePath('BrowseNodeLookupResponse'))
+
+    describe 'when no callback is passed', ->
+      it 'should return search results from amazon', () ->
+        client.browseNodeLookup(query)
+        .then (results) ->
+          results.should.be.an.Array
+
+    describe 'when callback is passed', ->
+      it 'should return search results from amazon', (done) ->
+        client.browseNodeLookup query, (err, results, response) ->
+          results.should.be.an.Array
+          response.should.be.an.Array
+          done()
+
+  describe 'when credentials are invalid', ->
+
+    beforeEach ->
+      nock('https://webservices.amazon.com')
+        .get('/onca/xml')
+        .query(true)
+        .replyWithFile(403, fixturePath('BrowseNodeLookupErrorResponse'))
+
+    describe 'when no callback is passed', ->
+      it 'should return an error', () ->
+        client.browseNodeLookup(query)
+        .catch (err) ->
+          err.should.be.an.Object
+          err.should.have.property 'Error'
+
+    describe 'when callback is passed', ->
+      it 'should return an error', (done) ->
+        client.browseNodeLookup query, (err, results) ->
+          err.should.be.an.Object
+          err.should.have.property 'Error'
+          done()

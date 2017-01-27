@@ -1,24 +1,22 @@
-utils = require('../lib/utils')
-urlRegex = require './regex-weburl'
-
-credentials =
-  awsTag: process.env.AWS_TAG
-  awsId: process.env.AWS_ID
-  awsSecret: process.env.AWS_SECRET
-
+utils = require '../lib/utils'
+validUrl = require 'valid-url'
 
 describe "utils", ->
+  credentials = null
+
+  beforeEach ->
+    credentials =
+      awsTag: 'FAKE_AWS_TAG'
+      awsId: 'FAKE_AWS_ID'
+      awsSecret: 'FAKE_AWS_SECRET'
 
   describe 'formatQueryParams(query, method, credentials)', ->
     it 'should return an object', ->
-      queryParams = utils.formatQueryParams
+      query =
         artist: 'Muse'
         searchIndex: 'Music'
         responseGroup: 'Small,Offers,Images,ItemAttributes'
-        ,
-        'ItemSearch'
-        ,
-        credentials
+      queryParams = utils.formatQueryParams query, 'ItemSearch', credentials
 
       queryParams.should.be.an.Object
 
@@ -54,20 +52,20 @@ describe "utils", ->
 
 
   describe 'generateQueryString(query, method, credentials)', ->
-    queryString = utils.generateQueryString
-      keywords: 'Game of Thrones'
-      searchIndex: 'DVD'
-      responseGroup: 'Images,ItemAttributes'
-      ,
-      'ItemSearch'
-      ,
-      credentials
+    queryString = null
+
+    beforeEach ->
+      query =
+        keywords: 'Game of Thrones'
+        searchIndex: 'DVD'
+        responseGroup: 'Images,ItemAttributes'
+      queryString = utils.generateQueryString query, 'ItemSearch', credentials
 
     it 'should return a string', ->
       queryString.should.be.a.String
 
     it 'should be a valid url', ->
-      queryString.should.match urlRegex
+      (validUrl.isHttpsUri(queryString)).should.be.a.String
 
     it 'should include a valid timestamp', ->
       queryString.should.match /&Timestamp=([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?/

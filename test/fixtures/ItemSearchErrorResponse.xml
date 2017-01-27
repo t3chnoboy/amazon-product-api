@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ItemSearchErrorResponse xmlns="http://ecs.amazonaws.com/doc/2013-08-01/">
+   <Error>
+      <Code>InvalidClientTokenId</Code>
+      <Message>The AWS Access Key Id you provided does not exist in our records.</Message>
+   </Error>
+   <RequestId>3f1e7203-c8ec-4d67-a4ea-cf8faa4dbe88</RequestId>
+</ItemSearchErrorResponse>
