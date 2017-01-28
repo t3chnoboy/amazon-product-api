@@ -116,8 +116,7 @@ describe 'client.itemSearch(query, cb)', ->
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
-        client.itemSearch {keywords: 'Pulp fiction', searchIndex: 'DVD', responseGroup: 'Offers'}, (err, results, response) ->
-          results.should.be.an.Array
+        client.itemSearch {keywords: 'Pulp fiction', searchIndex: 'DVD', responseGroup: 'Offers'}, (response) ->
           response.should.be.an.Array
           response[0].should.be.an.Object
           response[0].should.have.property 'Request'
@@ -169,8 +168,7 @@ describe 'client.itemLookup(query, cb)', ->
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
-        client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (err, results, response) ->
-          results.should.be.an.Array
+        client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (response) ->
           response.should.be.an.Array
           response[0].should.be.an.Object
           response[0].should.have.property 'Request'
@@ -238,9 +236,8 @@ describe 'client.browseNodeLookup(query, cb)', ->
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
-        client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (err, results, response) ->
+        client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (response) ->
 
-          results.should.be.an.Array
           response.should.be.an.Array
           response[0].should.be.an.Object
           response[0].should.have.property 'Request'
