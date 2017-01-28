@@ -118,7 +118,6 @@ describe 'client.itemSearch(query, cb)', ->
       it 'should return search results from amazon', ->
         client.itemSearch {keywords: 'Pulp fiction', searchIndex: 'DVD', responseGroup: 'Offers'}, (response) ->
           response.should.be.an.Object
-          response.should.be.an.Object
           response.should.have.property 'Request'
           response['Request'].should.be.an.Array
           response['Request'][0].should.have.property('IsValid', ["True"])
