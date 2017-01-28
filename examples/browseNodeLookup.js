@@ -6,12 +6,13 @@ var client = amazon.createClient({
   awsSecret: process.env.AWS_SECRET
 });
 
-client.itemLookup({
-      browseNodeId: '549726',
-      responseGroup: 'NewReleases'
-    }, function (err, results) {
-      if (err) {
+client.browseNodeLookup({
+    browseNodeId: '549726',
+    responseGroup: 'NewReleases'
+}, function (err, results) {
+    if (err) {
         console.log(err);
-      } else {
+    } else {
         console.log(results);
-      }
+    }
+});

@@ -8,7 +8,6 @@ credentials =
   awsId: process.env.AWS_ID
   awsSecret: process.env.AWS_SECRET
 
-
 describe 'formatQueryParams(query, method, credentials)', ->
   it 'should return an object', ->
     queryParams = formatQueryParams
@@ -112,16 +111,17 @@ describe 'client.itemSearch(query, cb)', ->
           responseGroup: 'Offers'
           domain: 'webservices.amazon.co.uk'
         .then (results) ->
-          results.should.be.an.Array
+          results.should.be.an.Object
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
-        client.itemSearch {keywords: 'Pulp fiction', searchIndex: 'DVD', responseGroup: 'Offers'}, (response) ->
+        client.itemSearch {keywords: 'Pulp fiction', searchIndex: 'DVD', responseGroup: 'Offers'}, (err, response) ->
           response.should.be.an.Object
-          response.should.have.property 'Request'
-          response['Request'].should.be.an.Array
-          response['Request'][0].should.have.property('IsValid', ["True"])
-          response['Request'][0].should.have.property 'ItemSearchRequest'
+          response.data.should.be.an.Object
+          response.data.Items[0].should.have.property 'Request'
+          response.data.Items[0]['Request'].should.be.an.Array
+          response.data.Items[0]['Request'][0].should.have.property('IsValid', ["True"])
+          response.data.Items[0]['Request'][0].should.have.property 'ItemSearchRequest'
 
 
   describe 'when credentials are invalid', ->
@@ -162,17 +162,19 @@ describe 'client.itemLookup(query, cb)', ->
         client.itemLookup
           idType: 'UPC',
           itemId: '889030012227'
+          domain: 'webservices.amazon.co.uk'
         .then (results) ->
           results.should.be.an.Object
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
-        client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (response) ->
+        client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (err, response) ->
           response.should.be.an.Object
-          response.should.have.property 'Request'
-          response['Request'].should.be.an.Array
-          response['Request'][0].should.have.property('IsValid', ["True"])
-          response['Request'][0].should.have.property 'ItemLookupRequest'
+          response.data.should.be.an.Object
+          response.data.Items[0].should.have.property 'Request'
+          response.data.Items[0]['Request'].should.be.an.Array
+          response.data.Items[0]['Request'][0].should.have.property('IsValid', ["True"])
+          response.data.Items[0]['Request'][0].should.have.property 'ItemLookupRequest'
 
 
   describe 'when credentials are invalid', ->
@@ -229,18 +231,20 @@ describe 'client.browseNodeLookup(query, cb)', ->
         client.browseNodeLookup
           browseNodeId: '549726',
           responseGroup: 'NewReleases'
+          domain: 'webservices.amazon.co.uk'
         .then (results) ->
           results.should.be.an.Object
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
-        client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (response) ->
+        client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (err, response) ->
 
           response.should.be.an.Object
-          response.should.have.property 'Request'
-          response['Request'].should.be.an.Array
-          response['Request'][0].should.have.property('IsValid', ["True"])
-          response['Request'][0].should.have.property 'BrowseNodeLookupRequest'
+          response.data.should.be.an.Object
+          response.data.BrowseNodes[0].should.have.property 'Request'
+          response.data.BrowseNodes[0]['Request'].should.be.an.Array
+          response.data.BrowseNodes[0]['Request'][0].should.have.property('IsValid', ["True"])
+          response.data.BrowseNodes[0]['Request'][0].should.have.property 'BrowseNodeLookupRequest'
 
 
   describe 'when credentials are invalid', ->
