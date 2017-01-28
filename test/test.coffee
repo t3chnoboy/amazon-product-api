@@ -103,7 +103,7 @@ describe 'client.itemSearch(query, cb)', ->
           searchIndex: 'DVD'
           responseGroup: 'Offers'
         .then (results) ->
-          results.should.be.an.Array
+          results.should.be.an.Object
 
       it 'should work with custom domain', ->
         client.itemSearch
@@ -117,12 +117,12 @@ describe 'client.itemSearch(query, cb)', ->
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
         client.itemSearch {keywords: 'Pulp fiction', searchIndex: 'DVD', responseGroup: 'Offers'}, (response) ->
-          response.should.be.an.Array
-          response[0].should.be.an.Object
-          response[0].should.have.property 'Request'
-          response[0]['Request'].should.be.an.Array
-          response[0]['Request'][0].should.have.property('IsValid', ["True"])
-          response[0]['Request'][0].should.have.property 'ItemSearchRequest'
+          response.should.be.an.Object
+          response.should.be.an.Object
+          response.should.have.property 'Request'
+          response['Request'].should.be.an.Array
+          response['Request'][0].should.have.property('IsValid', ["True"])
+          response['Request'][0].should.have.property 'ItemSearchRequest'
 
 
   describe 'when credentials are invalid', ->
@@ -157,24 +157,23 @@ describe 'client.itemLookup(query, cb)', ->
           idType: 'UPC',
           itemId: '889030012227'
         .then (results) ->
-          results.should.be.an.Array
+          results.should.be.an.Object
 
       it 'should work with custom domain', ->
         client.itemLookup
           idType: 'UPC',
           itemId: '889030012227'
         .then (results) ->
-          results.should.be.an.Array
+          results.should.be.an.Object
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
         client.itemLookup {idType: 'UPC', itemId: '889030012227'}, (response) ->
-          response.should.be.an.Array
-          response[0].should.be.an.Object
-          response[0].should.have.property 'Request'
-          response[0]['Request'].should.be.an.Array
-          response[0]['Request'][0].should.have.property('IsValid', ["True"])
-          response[0]['Request'][0].should.have.property 'ItemLookupRequest'
+          response.should.be.an.Object
+          response.should.have.property 'Request'
+          response['Request'].should.be.an.Array
+          response['Request'][0].should.have.property('IsValid', ["True"])
+          response['Request'][0].should.have.property 'ItemLookupRequest'
 
 
   describe 'when credentials are invalid', ->
@@ -206,7 +205,7 @@ describe 'client.itemLookup(query, cb)', ->
           idType: 'ASIN',
           itemId: 'B00QTDTUVM'
         .catch (err) ->
-          err.should.be.an.Array
+          err.should.be.an.Object
 
     describe 'when callback is passed', ->
       it 'should return the errors inside the request node', ->
@@ -225,25 +224,24 @@ describe 'client.browseNodeLookup(query, cb)', ->
           browseNodeId: '549726',
           responseGroup: 'NewReleases'
         .then (results) ->
-          results.should.be.an.Array
+          results.should.be.an.Object
 
       it 'should work with custom domain', ->
         client.browseNodeLookup
           browseNodeId: '549726',
           responseGroup: 'NewReleases'
         .then (results) ->
-          results.should.be.an.Array
+          results.should.be.an.Object
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', ->
         client.browseNodeLookup {browseNodeId: '549726', responseGroup: 'NewReleases'}, (response) ->
 
-          response.should.be.an.Array
-          response[0].should.be.an.Object
-          response[0].should.have.property 'Request'
-          response[0]['Request'].should.be.an.Array
-          response[0]['Request'][0].should.have.property('IsValid', ["True"])
-          response[0]['Request'][0].should.have.property 'BrowseNodeLookupRequest'
+          response.should.be.an.Object
+          response.should.have.property 'Request'
+          response['Request'].should.be.an.Array
+          response['Request'][0].should.have.property('IsValid', ["True"])
+          response['Request'][0].should.have.property 'BrowseNodeLookupRequest'
 
 
   describe 'when credentials are invalid', ->
@@ -296,4 +294,4 @@ describe 'escape rfc 3986 reserved chars', ->
         searchIndex: 'DVD'
         responseGroup: 'Offers'
       .then (results) ->
-        results.should.be.an.Array
+        results.should.be.an.Object
