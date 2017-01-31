@@ -6,8 +6,3 @@ node_js:
 - '0.12'
 - '0.11'
 - '0.10'
-env:
-  global:
-  - secure: Pkoyr0W2fm8O7C0MPgG8mhMhxWxNL7J3fdBFeAwu0I/61EYxHxRKaazNhWlO/QPFHR0ZKak9PmrtqhBLLYXKJ7D3yITzK4MEemTdekOli7ykQTrdLGluUcUNFp5K+6CA7BwpyfqJJtyK5NREz6biuE9/80+YTOWflzTUvmQCDww=
-  - secure: JlKSd1alAyCjE18ejpj/oNvH68CSp1YW2SKqCKAGoHONwBwrfKpqDBAha+pxQ1KZY6fgiiachpSFIgf5Z3ZdII8N19qrv84dtg0l608VJKGtJncDj2efe8nlGtWWo/oMhaKh/YH82BJ5UBXNmEb4iZDYVj5ZAuMU5gZ5Skm7lnY=
-  - secure: CGruZvRo8hGuibFgJh01p94rrYFF68vKLZ+w1ywsDjT5d0ZW+BvAYuXIIHOk8M41pgfqRoesIsiYpSXVO4pzlGcGB3eTfC/WnXQRlkwrUidDbKhxETJ2aONrxnKHbn/Ru98Np1UQzXH9VLFINaj02v8/up8qCDOM4GXHJ4vTQmE=

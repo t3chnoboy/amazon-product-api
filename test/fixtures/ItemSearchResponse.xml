@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ItemSearchResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2013-08-01">
+   <OperationRequest>
+      <RequestId>81933a2f-282a-44e1-ba2a-3b4962e68379</RequestId>
+      <Arguments>
+         <Argument Name="AWSAccessKeyId" Value="fake-aws-access-key-id" />
+         <Argument Name="AssociateTag" Value="fake-associate-tag" />
+         <Argument Name="Condition" Value="All" />
+         <Argument Name="ItemPage" Value="1" />
+         <Argument Name="Keywords" Value="Pulp fiction" />
+         <Argument Name="Operation" Value="ItemSearch" />
+         <Argument Name="ResponseGroup" Value="Offers" />
+         <Argument Name="SearchIndex" Value="DVD" />
+         <Argument Name="Service" Value="AWSECommerceService" />
+         <Argument Name="Timestamp" Value="2017-01-27T04:39:17.930Z" />
+         <Argument Name="Version" Value="2013-08-01" />
+         <Argument Name="Signature" Value="E0yC/naA3e1sHusQTI0ITJ0qEuT3467KoowOq95Qk2g=" />
+      </Arguments>
+      <RequestProcessingTime>0.0382237230000000</RequestProcessingTime>
+   </OperationRequest>
+   <Items>
+      <Request>
+         <IsValid>True</IsValid>
+         <ItemSearchRequest>
+            <Condition>All</Condition>
+            <ItemPage>1</ItemPage>
+            <Keywords>Pulp fiction</Keywords>
+            <ResponseGroup>Offers</ResponseGroup>
+            <SearchIndex>DVD</SearchIndex>
+         </ItemSearchRequest>
+      </Request>
+      <TotalResults>2</TotalResults>
+      <TotalPages>1</TotalPages>
+      <MoreSearchResultsUrl>https://www.amazon.com/gp/redirect.html?linkCode=xm2&amp;SubscriptionId=fake-aws-access-key-id&amp;location=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fsearch%3Fkeywords%3DPulp%2Bfiction%26url%3Dsearch-alias%253Ddvd&amp;tag=fake-associate-tag&amp;creative=386001&amp;camp=2025</MoreSearchResultsUrl>
+      <Item>
+         <ASIN>B001AQT0Z4</ASIN>
+         <OfferSummary>
+            <LowestNewPrice>
+               <Amount>718</Amount>
+               <CurrencyCode>USD</CurrencyCode>
+               <FormattedPrice>$7.18</FormattedPrice>
+            </LowestNewPrice>
+            <LowestUsedPrice>
+               <Amount>38</Amount>
+               <CurrencyCode>USD</CurrencyCode>
+               <FormattedPrice>$0.38</FormattedPrice>
+            </LowestUsedPrice>
+            <LowestCollectiblePrice>
+               <Amount>3599</Amount>
+               <CurrencyCode>USD</CurrencyCode>
+               <FormattedPrice>$35.99</FormattedPrice>
+            </LowestCollectiblePrice>
+            <TotalNew>32</TotalNew>
+            <TotalUsed>46</TotalUsed>
+            <TotalCollectible>1</TotalCollectible>
+            <TotalRefurbished>0</TotalRefurbished>
+         </OfferSummary>
+         <Offers>
+            <TotalOffers>3</TotalOffers>
+            <TotalOfferPages>1</TotalOfferPages>
+            <MoreOffersUrl>https://www.amazon.com/gp/offer-listing/B001AQT0Z4%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB001AQT0Z4</MoreOffersUrl>
+            <Offer>
+               <OfferAttributes>
+                  <Condition>New</Condition>
+               </OfferAttributes>
+               <OfferListing>
+                  <OfferListingId>zulevE8iPU%2FedQtbl6XeVmOFnfoh4yUaNurrduyi1e24M7032si5UymF%2FR2F7InMlO8bTdqRYEwtDc0myUEZ2ZDxPcth1K1tZSRjry58%2Bcbax7WrNISM%2Fcx5ggo5HZ9GU9aJPgge%2F0K1cwUGVpupvg%3D%3D</OfferListingId>
+                  <Price>
+                     <Amount>718</Amount>
+                     <CurrencyCode>USD</CurrencyCode>
+                     <FormattedPrice>$7.18</FormattedPrice>
+                  </Price>
+                  <AmountSaved>
+                     <Amount>181</Amount>
+                     <CurrencyCode>USD</CurrencyCode>
+                     <FormattedPrice>$1.81</FormattedPrice>
+                  </AmountSaved>
+                  <PercentageSaved>20</PercentageSaved>
+                  <Availability>Usually ships in 1-2 business days</Availability>
+                  <AvailabilityAttributes>
+                     <AvailabilityType>now</AvailabilityType>
+                     <MinimumHours>24</MinimumHours>
+                     <MaximumHours>48</MaximumHours>
+                  </AvailabilityAttributes>
+                  <IsEligibleForSuperSaverShipping>0</IsEligibleForSuperSaverShipping>
+                  <IsEligibleForPrime>0</IsEligibleForPrime>
+               </OfferListing>
+            </Offer>
+            <Offer>
+               <OfferAttributes>
+                  <Condition>Used</Condition>
+               </OfferAttributes>
+               <OfferListing>
+                  <OfferListingId>zulevE8iPU%2FedQtbl6XeVmOFnfoh4yUa%2FlBt2XtA%2BZSWzD9byolFOS0jAQsmakvxi58A%2FR9ubrie4pb%2FJ8xwluZ9jSIuzFWFpCbm0nUStCUmhvJiC7iA17vcYewVq7XCADpSEd9MC%2F42rmaX9a02XyoUNStc0cHE</OfferListingId>
+                  <Price>
+                     <Amount>38</Amount>
+                     <CurrencyCode>USD</CurrencyCode>
+                     <FormattedPrice>$0.38</FormattedPrice>
+                  </Price>
+                  <AmountSaved>
+                     <Amount>861</Amount>
+                     <CurrencyCode>USD</CurrencyCode>
+                     <FormattedPrice>$8.61</FormattedPrice>
+                  </AmountSaved>
+                  <PercentageSaved>96</PercentageSaved>
+                  <Availability>Usually ships in 1-2 business days</Availability>
+                  <AvailabilityAttributes>
+                     <AvailabilityType>now</AvailabilityType>
+                     <MinimumHours>24</MinimumHours>
+                     <MaximumHours>48</MaximumHours>
+                  </AvailabilityAttributes>
+                  <IsEligibleForSuperSaverShipping>0</IsEligibleForSuperSaverShipping>
+                  <IsEligibleForPrime>0</IsEligibleForPrime>
+               </OfferListing>
+            </Offer>
+            <Offer>
+               <OfferAttributes>
+                  <Condition>Collectible</Condition>
+               </OfferAttributes>
+               <OfferListing>
+                  <OfferListingId>zulevE8iPU%2FedQtbl6XeVmOFnfoh4yUawnPlBYg6pIEUJ9CE0OPROuwPKMaNKYj2aDfefFVmowXQXp34M3Vav8JcTKG7fzzQwtke6Tqxm1pNIIHUPxSmGv9rb7gMXELZ8EthZSN4dpLEHWlSfQwbRQ%3D%3D</OfferListingId>
+                  <Price>
+                     <Amount>3599</Amount>
+                     <CurrencyCode>USD</CurrencyCode>
+                     <FormattedPrice>$35.99</FormattedPrice>
+                  </Price>
+                  <Availability>Usually ships in 1-2 business days</Availability>
+                  <AvailabilityAttributes>
+                     <AvailabilityType>now</AvailabilityType>
+                     <MinimumHours>24</MinimumHours>
+                     <MaximumHours>48</MaximumHours>
+                  </AvailabilityAttributes>
+                  <IsEligibleForSuperSaverShipping>0</IsEligibleForSuperSaverShipping>
+                  <IsEligibleForPrime>0</IsEligibleForPrime>
+               </OfferListing>
+            </Offer>
+         </Offers>
+      </Item>
+      <Item>
+         <ASIN>B005T3AYAE</ASIN>
+         <OfferSummary>
+            <LowestNewPrice>
+               <Amount>299</Amount>
+               <CurrencyCode>USD</CurrencyCode>
+               <FormattedPrice>$2.99</FormattedPrice>
+            </LowestNewPrice>
+            <TotalNew>1</TotalNew>
+            <TotalUsed>0</TotalUsed>
+            <TotalCollectible>0</TotalCollectible>
+            <TotalRefurbished>0</TotalRefurbished>
+         </OfferSummary>
+         <Offers>
+            <TotalOffers>1</TotalOffers>
+            <TotalOfferPages>1</TotalOfferPages>
+            <MoreOffersUrl>https://www.amazon.com/gp/offer-listing/B005T3AYAE%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB005T3AYAE</MoreOffersUrl>
+            <Offer>
+               <OfferAttributes>
+                  <Condition>New</Condition>
+               </OfferAttributes>
+               <OfferListing>
+                  <OfferListingId>V7DF9tjvlCM4CwI2Pn23rjTLLr6vjiv1m1kXfeLkleEzZgYRzIVI9ac0iFkZCD3UE170v4h%2FIh2ZVHecE1S3Hi5XFSVd1tskLqhOvAb7N%2FlnJxKpXbEFe%2FbFquRjUeKIFxPcCiJTf737NmX9oO%2BYUb5awp8b5oJd</OfferListingId>
+                  <Price>
+                     <Amount>299</Amount>
+                     <CurrencyCode>USD</CurrencyCode>
+                     <FormattedPrice>$2.99</FormattedPrice>
+                  </Price>
+                  <Availability>Usually ships in 1-2 business days</Availability>
+                  <AvailabilityAttributes>
+                     <AvailabilityType>now</AvailabilityType>
+                     <MinimumHours>24</MinimumHours>
+                     <MaximumHours>48</MaximumHours>
+                  </AvailabilityAttributes>
+                  <IsEligibleForSuperSaverShipping>0</IsEligibleForSuperSaverShipping>
+                  <IsEligibleForPrimeFreeDigitalVideo>1</IsEligibleForPrimeFreeDigitalVideo>
+                  <IsEligibleForPrime>0</IsEligibleForPrime>
+               </OfferListing>
+            </Offer>
+         </Offers>
+      </Item>
+   </Items>
+</ItemSearchResponse>

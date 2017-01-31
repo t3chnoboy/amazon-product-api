@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BrowseNodeLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2013-08-01">
+   <OperationRequest>
+      <RequestId>dcfb00a5-2c03-4b20-a6f6-5e6da6c6624a</RequestId>
+      <Arguments>
+         <Argument Name="AWSAccessKeyId" Value="fake-aws-access-key-id" />
+         <Argument Name="AssociateTag" Value="fake-associate-tag" />
+         <Argument Name="BrowseNodeId" Value="549726" />
+         <Argument Name="Operation" Value="BrowseNodeLookup" />
+         <Argument Name="ResponseGroup" Value="NewReleases" />
+         <Argument Name="Service" Value="AWSECommerceService" />
+         <Argument Name="Timestamp" Value="2017-01-27T14:31:46.101Z" />
+         <Argument Name="Version" Value="2013-08-01" />
+         <Argument Name="Signature" Value="zbgNmRDc3j8zbn2VeqAzytkr4/nUK8y6rmdGm7es2t0=" />
+      </Arguments>
+      <RequestProcessingTime>0.12587859</RequestProcessingTime>
+   </OperationRequest>
+   <BrowseNodes>
+      <Request>
+         <IsValid>True</IsValid>
+         <BrowseNodeLookupRequest>
+            <BrowseNodeId>549726</BrowseNodeId>
+            <ResponseGroup>NewReleases</ResponseGroup>
+         </BrowseNodeLookupRequest>
+      </Request>
+      <BrowseNode>
+         <BrowseNodeId>549726</BrowseNodeId>
+         <Name>Business Technology</Name>
+         <NewReleases>
+            <NewRelease>
+               <ASIN>1101903309</ASIN>
+               <Title>The Underground Culinary Tour: How the New Metrics of Today's Top Restaurants Are Transforming How America Eats</Title>
+            </NewRelease>
+            <NewRelease>
+               <ASIN>B0176M3XDK</ASIN>
+               <Title>Valley of the Gods: A Silicon Valley Story</Title>
+            </NewRelease>
+         </NewReleases>
+         <TopItemSet>
+            <Type>NewReleases</Type>
+            <TopItem>
+               <ASIN>1101903309</ASIN>
+               <Title>The Underground Culinary Tour: How the New Metrics of Today's Top Restaurants Are Transforming How America Eats</Title>
+               <DetailPageURL>https://www.amazon.com/Underground-Culinary-Tour-Restaurants-Transforming/dp/1101903309%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1101903309</DetailPageURL>
+               <ProductGroup>Book</ProductGroup>
+               <Author>Mogavero, Damian</Author>
+               <Author>D'Agnese, Joseph</Author>
+            </TopItem>
+            <TopItem>
+               <ASIN>B0176M3XDK</ASIN>
+               <Title>Valley of the Gods: A Silicon Valley Story</Title>
+               <DetailPageURL>https://www.amazon.com/Valley-Gods-Silicon-Story-ebook/dp/B0176M3XDK%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0176M3XDK</DetailPageURL>
+               <ProductGroup>eBooks</ProductGroup>
+               <Author>Wolfe, Alexandra</Author>
+            </TopItem>
+         </TopItemSet>
+      </BrowseNode>
+   </BrowseNodes>
+</BrowseNodeLookupResponse>

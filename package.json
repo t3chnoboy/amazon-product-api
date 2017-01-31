@@ -7,7 +7,7 @@
     "lib": "./lib/"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --opts test/support/mocha.opts"
   },
   "keywords": [
     "amazon",
@@ -19,14 +19,16 @@
   "author": "Dmitry Mazuro <dmitry.mazuro@icloud.com>",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "es6-promise": "3.0.2",
-    "xml2js": "0.4.5",
-    "request": "2.53.0"
+    "es6-promise": "^3.0.2",
+    "request": "^2.79.0",
+    "xml2js": "^0.4.17"
   },
   "devDependencies": {
-    "coffee-script": "1.7.1",
-    "mocha": "1.20.1",
-    "should": "4.0.4"
+    "coffee-script": "^1.12.3",
+    "mocha": "^3.2.0",
+    "nock": "^9.0.2",
+    "should": "^11.2.0",
+    "valid-url": "^1.0.9"
   },
   "repository": {
     "type": "git",
