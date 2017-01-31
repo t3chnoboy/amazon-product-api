@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2013-08-01">
+   <OperationRequest>
+      <RequestId>be1d236c-e38b-476b-bd1a-49fca68d7785</RequestId>
+      <Arguments>
+         <Argument Name="AWSAccessKeyId" Value="fake-aws-access-key-id" />
+         <Argument Name="AssociateTag" Value="fake-associate-tag" />
+         <Argument Name="Condition" Value="All" />
+         <Argument Name="IdType" Value="UPC" />
+         <Argument Name="IncludeReviewsSummary" Value="True" />
+         <Argument Name="ItemId" Value="889030012227" />
+         <Argument Name="Operation" Value="ItemLookup" />
+         <Argument Name="ResponseGroup" Value="ItemAttributes" />
+         <Argument Name="SearchIndex" Value="All" />
+         <Argument Name="Service" Value="AWSECommerceService" />
+         <Argument Name="Timestamp" Value="2017-01-27T14:20:59.841Z" />
+         <Argument Name="TruncateReviewsAt" Value="1000" />
+         <Argument Name="VariationPage" Value="All" />
+         <Argument Name="Version" Value="2013-08-01" />
+         <Argument Name="Signature" Value="kdyioLha2xafpZ/7SbaU7NZr3MiCaDWpE0oUpwk255Y=" />
+      </Arguments>
+      <RequestProcessingTime>0.0272813310000000</RequestProcessingTime>
+   </OperationRequest>
+   <Items>
+      <Request>
+         <IsValid>True</IsValid>
+         <ItemLookupRequest>
+            <Condition>All</Condition>
+            <IdType>UPC</IdType>
+            <ItemId>889030012227</ItemId>
+            <ResponseGroup>ItemAttributes</ResponseGroup>
+            <SearchIndex>All</SearchIndex>
+            <VariationPage>All</VariationPage>
+            <IncludeReviewsSummary>True</IncludeReviewsSummary>
+            <TruncateReviewsAt>1000</TruncateReviewsAt>
+         </ItemLookupRequest>
+      </Request>
+      <Item>
+         <ASIN>B00V9MQZRU</ASIN>
+         <DetailPageURL>https://www.amazon.com/Colour-Jamie-xx/dp/B00V9MQZRU%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00V9MQZRU</DetailPageURL>
+         <ItemLinks>
+            <ItemLink>
+               <Description>Technical Details</Description>
+               <URL>https://www.amazon.com/Colour-Jamie-xx/dp/tech-data/B00V9MQZRU%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+            </ItemLink>
+            <ItemLink>
+               <Description>Add To Baby Registry</Description>
+               <URL>https://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3DB00V9MQZRU%26SubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+            </ItemLink>
+            <ItemLink>
+               <Description>Add To Wedding Registry</Description>
+               <URL>https://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3DB00V9MQZRU%26SubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+            </ItemLink>
+            <ItemLink>
+               <Description>Add To Wishlist</Description>
+               <URL>https://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3DB00V9MQZRU%26SubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+            </ItemLink>
+            <ItemLink>
+               <Description>Tell A Friend</Description>
+               <URL>https://www.amazon.com/gp/pdp/taf/B00V9MQZRU%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+            </ItemLink>
+            <ItemLink>
+               <Description>All Customer Reviews</Description>
+               <URL>https://www.amazon.com/review/product/B00V9MQZRU%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+            </ItemLink>
+            <ItemLink>
+               <Description>All Offers</Description>
+               <URL>https://www.amazon.com/gp/offer-listing/B00V9MQZRU%3FSubscriptionId%3Dfake-aws-access-key-id%26tag%3Dfake-associate-tag%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3DB00V9MQZRU</URL>
+            </ItemLink>
+         </ItemLinks>
+         <ItemAttributes>
+            <Artist>Jamie xx</Artist>
+            <Binding>Audio CD</Binding>
+            <Brand>CD</Brand>
+            <CatalogNumberList>
+               <CatalogNumberListElement>YTCD122</CatalogNumberListElement>
+            </CatalogNumberList>
+            <EAN>0889030012227</EAN>
+            <EANList>
+               <EANListElement>0889030012227</EANListElement>
+            </EANList>
+            <IsAdultProduct>0</IsAdultProduct>
+            <ItemDimensions>
+               <Height Units="hundredths-inches">480</Height>
+               <Length Units="hundredths-inches">550</Length>
+               <Weight Units="hundredths-pounds">15</Weight>
+               <Width Units="hundredths-inches">30</Width>
+            </ItemDimensions>
+            <Label>Young Turks</Label>
+            <Languages>
+               <Language>
+                  <Name>English</Name>
+                  <Type>Original Language</Type>
+               </Language>
+               <Language>
+                  <Name>English</Name>
+                  <Type>Unknown</Type>
+               </Language>
+            </Languages>
+            <Manufacturer>Young Turks</Manufacturer>
+            <Model>34115600</Model>
+            <MPN>889030012227</MPN>
+            <NumberOfDiscs>1</NumberOfDiscs>
+            <NumberOfItems>1</NumberOfItems>
+            <PackageDimensions>
+               <Height Units="hundredths-inches">20</Height>
+               <Length Units="hundredths-inches">560</Length>
+               <Weight Units="hundredths-pounds">10</Weight>
+               <Width Units="hundredths-inches">490</Width>
+            </PackageDimensions>
+            <PackageQuantity>1</PackageQuantity>
+            <PartNumber>889030012227</PartNumber>
+            <ProductGroup>Music</ProductGroup>
+            <ProductTypeName>ABIS_MUSIC</ProductTypeName>
+            <Publisher>Young Turks</Publisher>
+            <ReleaseDate>2015-06-02</ReleaseDate>
+            <Studio>Young Turks</Studio>
+            <Title>In Colour</Title>
+            <UPC>889030012227</UPC>
+            <UPCList>
+               <UPCListElement>889030012227</UPCListElement>
+            </UPCList>
+         </ItemAttributes>
+      </Item>
+   </Items>
+</ItemLookupResponse>

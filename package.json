@@ -8,7 +8,7 @@
   },
   "scripts": {
     "pretest": "eslint .",
-    "test": "mocha --opts test/mocha.opts"
+    "test": "mocha --opts test/support/mocha.opts"
   },
   "keywords": [
     "amazon",
