@@ -3,16 +3,16 @@ var amazon = require('../lib');
 var client = amazon.createClient({
   awsTag: process.env.AWS_TAG,
   awsId: process.env.AWS_ID,
-  awsSecret: process.env.AWS_SECRET
+  awsSecret: process.env.AWS_SECRET,
 });
 
 client.browseNodeLookup({
-    browseNodeId: '549726',
-    responseGroup: 'NewReleases'
+  browseNodeId: '549726',
+  responseGroup: 'NewReleases',
 }, function (err, results) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(results);
-    }
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(results);
+  }
 });
