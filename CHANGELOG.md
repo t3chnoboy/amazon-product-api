@@ -3,7 +3,7 @@
 
 ```javascript
 {
-  'resp': <req response>,
+  'response': <req response>,
   'data': <amazon data>
 }
 ```
@@ -24,6 +24,17 @@ then(function(results){...})
 - Updated tests to handle API changes
 - Updated README.md to reflect API changes
 - Updated broken brwoseNodeLookup example
+
+If you're coming from v0.4.3 or before the callback returned two objects,
+`results` and `response`.  Now it only returns a single object, `results`
+that contains two objects:
+```javascript
+{
+  'response': <req response>,
+  'data': <amazon data>
+}
+```
+You'll need to update your code accordingly.
 
 ## Version 0.4.3 2017-01-26
 - Callback has the following format:
