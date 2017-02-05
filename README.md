@@ -53,7 +53,7 @@ client.itemSearch({
   audienceRating: 'R',
   responseGroup: 'ItemAttributes,Offers,Images'
 }).then(function(results){
-  console.log(JSON.stringify(results)); // (Object containing two properties {resp: <req response>, data: <amazon data>})
+  console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, result: <amazon data>})
 }).catch(function(err){
   console.log(err);
 });
@@ -71,7 +71,7 @@ client.itemSearch({
   if (err) {
     console.log(err);
   } else {
-    console.log(JSON.stringify(results)); // (Object containing two properties {resp: <req response>, data: <amazon data>})
+    console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, result: <amazon data>})
   }
 });
 ```
@@ -121,7 +121,7 @@ client.itemLookup({
   idType: 'UPC',
   itemId: '884392579524'
 }).then(function(results) {
-  console.log(JSON.stringify(results)); // (Object containing two properties {resp: <req response>, data: <amazon data>})
+  console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, result: <amazon data>})
 }).catch(function(err) {
   console.log(err);
 });
@@ -137,7 +137,7 @@ client.itemLookup({
   if (err) {
     console.log(err);
   } else {
-    console.log(JSON.stringify(results)); // (Object containing two properties {resp: <req response>, data: <amazon data>})
+    console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, result: <amazon data>})
   }
 });
 ```
@@ -176,7 +176,7 @@ client.browseNodeLookup({
   browseNodeId: '549726',
   responseGroup: 'NewReleases'
 }).then(function(results) {
-  console.log(JSON.stringify(results)); // (Object containing two properties {resp: <req response>, data: <amazon data>})
+  console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, result: <amazon data>})
 }).catch(function(err) {
   console.log(err);
 });
@@ -191,7 +191,7 @@ client.browseNodeLookup({
   if (err) {
     console.log(err);
   } else {
-    console.log(JSON.stringify(results)); // (Object containing two properties {resp: <req response>, data: <amazon data>})
+    console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, result: <amazon data>})
   }
 });
 ```
@@ -232,7 +232,7 @@ client.itemSearch(query, function (error, results) {
   if (error) {
     console.log(error);
   } else {
-    console.log(JSON.stringify(results)); // (Object containing two properties {resp: <req response>, data: <amazon data>})
+    console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, result: <amazon data>})
   }
 })
 ```

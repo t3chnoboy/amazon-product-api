@@ -4,7 +4,7 @@
 ```javascript
 {
   'response': <req response>,
-  'data': <amazon data>
+  'result': <amazon data>
 }
 ```
 
@@ -31,7 +31,7 @@ that contains two objects:
 ```javascript
 {
   'response': <req response>,
-  'data': <amazon data>
+  'result': <amazon data>
 }
 ```
 You'll need to update your code accordingly.
