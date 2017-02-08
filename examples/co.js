@@ -1,7 +1,7 @@
 var amazon = require('../lib');
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
 var co = require('co');
-/* eslint-enable import/no-extraneous-dependencies */
+/* eslint-enable import/no-extraneous-dependencies, import/no-unresolved */
 
 var client = amazon.createClient({
   awsTag: process.env.AWS_TAG,
