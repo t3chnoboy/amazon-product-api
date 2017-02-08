@@ -48,10 +48,11 @@ describe 'client.itemSearch(query, cb)', ->
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', (done) ->
-        client.itemSearch query, (error, results, response) ->
+        client.itemSearch query, (error, results) ->
           (error == null).should.be.true
-          results.should.be.an.Array
-          response.should.be.an.Array
+          results.should.be.an.Object
+          results.response.should.be.an.Object
+          results.results.should.be.an.Object
           done()
 
 
@@ -104,9 +105,10 @@ describe 'client.itemLookup(query, cb)', ->
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', (done) ->
-        client.itemLookup query, (err, results, response) ->
-          results.should.be.an.Array
-          response.should.be.an.Array
+        client.itemLookup query, (err, results) ->
+          results.should.be.an.Object
+          results.response.should.be.an.Object
+          results.results.should.be.an.Object
           done()
 
   describe 'when credentials are invalid', ->
@@ -158,9 +160,10 @@ describe 'client.browseNodeLookup(query, cb)', ->
 
     describe 'when callback is passed', ->
       it 'should return search results from amazon', (done) ->
-        client.browseNodeLookup query, (err, results, response) ->
-          results.should.be.an.Array
-          response.should.be.an.Array
+        client.browseNodeLookup query, (err, results) ->
+          results.should.be.an.Object
+          results.response.should.be.an.Object
+          results.results.should.be.an.Array
           done()
 
   describe 'when credentials are invalid', ->

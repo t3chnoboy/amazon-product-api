@@ -1,28 +1,28 @@
 var amazon = require('../lib');
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
 var co = require('co');
+/* eslint-enable import/no-extraneous-dependencies, import/no-unresolved */
 
 var client = amazon.createClient({
   awsTag: process.env.AWS_TAG,
   awsId: process.env.AWS_ID,
-  awsSecret: process.env.AWS_SECRET
+  awsSecret: process.env.AWS_SECRET,
 });
 
-co(function* () {
-
-  pulpFiction = client.itemSearch({
+co(function* fnCo() {
+  var pulpFiction = client.itemSearch({
     keywords: 'Pulp fiction',
-    searchIndex: 'DVD'
+    searchIndex: 'DVD',
   });
-  killBill = client.itemSearch({
+  var killBill = client.itemSearch({
     keywords: 'Kill Bill',
-    searchIndex: 'DVD'
+    searchIndex: 'DVD',
   });
-  reservoirDogs = client.itemSearch({
+  var reservoirDogs = client.itemSearch({
     keywords: 'Reservoir Dogs',
-    searchIndex: 'DVD'
+    searchIndex: 'DVD',
   });
 
-  movies = yield [pulpFiction, killBill, reservoirDogs];
+  var movies = yield [pulpFiction, killBill, reservoirDogs];
   console.log(movies);
-
 })();

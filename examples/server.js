@@ -1,15 +1,16 @@
-var amazon = require('../'),
-  koa = require('koa'),
-  router = require('koa-router');
+var amazon = require('../');
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
+var koa = require('koa');
+var router = require('koa-router');
+/* eslint-enable import/no-extraneous-dependencies, import/no-unresolved */
 
 var app = koa();
 var api = router();
 
-
 var client = amazon.createClient({
   awsTag: process.env.AWS_TAG,
   awsId: process.env.AWS_ID,
-  awsSecret: process.env.AWS_SECRET
+  awsSecret: process.env.AWS_SECRET,
 });
 
 
@@ -17,7 +18,7 @@ app.get('/amazon/:index', function* () {
   this.body = yield client.itemSearch({
     keywords: this.query.title,
     searchIndex: this.params.index,
-    responseGroup: 'ItemAttributes,Offers,Images'
+    responseGroup: 'ItemAttributes,Offers,Images',
   });
 });
 

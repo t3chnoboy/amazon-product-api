@@ -53,7 +53,7 @@ client.itemSearch({
   audienceRating: 'R',
   responseGroup: 'ItemAttributes,Offers,Images'
 }).then(function(results){
-  console.log(results);
+  console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, results: <amazon data>})
 }).catch(function(err){
   console.log(err);
 });
@@ -67,12 +67,11 @@ client.itemSearch({
   searchIndex: 'DVD',
   audienceRating: 'R',
   responseGroup: 'ItemAttributes,Offers,Images'
-}, function(err, results, response) {
+}, function(err, results) {
   if (err) {
     console.log(err);
   } else {
-    console.log(results);  // products (Array of Object)
-    console.log(response); // response (Array where the first element is an Object that contains Request, Item, etc.)
+    console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, results: <amazon data>})
   }
 });
 ```
@@ -122,7 +121,7 @@ client.itemLookup({
   idType: 'UPC',
   itemId: '884392579524'
 }).then(function(results) {
-  console.log(JSON.stringify(results));
+  console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, results: <amazon data>})
 }).catch(function(err) {
   console.log(err);
 });
@@ -134,11 +133,11 @@ client.itemLookup({
   idType: 'UPC',
   itemId: '635753490879',
   responseGroup: 'ItemAttributes,Offers,Images'
-}, function(err, results, response) {
+}, function(err, results) {
   if (err) {
     console.log(err);
   } else {
-    console.log(results);
+    console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, results: <amazon data>})
   }
 });
 ```
@@ -177,7 +176,7 @@ client.browseNodeLookup({
   browseNodeId: '549726',
   responseGroup: 'NewReleases'
 }).then(function(results) {
-  console.log(results);
+  console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, results: <amazon data>})
 }).catch(function(err) {
   console.log(err);
 });
@@ -188,11 +187,11 @@ Using a callback:
 client.browseNodeLookup({
   browseNodeId: '549726',
   responseGroup: 'NewReleases'
-}, function(err, results, response) {
+}, function(err, results) {
   if (err) {
     console.log(err);
   } else {
-    console.log(results);
+    console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, results: <amazon data>})
   }
 });
 ```
@@ -233,7 +232,7 @@ client.itemSearch(query, function (error, results) {
   if (error) {
     console.log(error);
   } else {
-    console.log(results);
+    console.log(JSON.stringify(results)); // (Object containing two properties {response: <req response>, result: <amazon data>})
   }
 })
 ```

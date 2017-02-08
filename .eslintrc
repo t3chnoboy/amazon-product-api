@@ -1,0 +1,11 @@
+{
+    "extends": [
+        "airbnb"
+    ],
+    "rules": {
+        "no-var": 1,
+        "prefer-arrow-callback": 1,
+        "prefer-template": 1
+    }
+}
+
