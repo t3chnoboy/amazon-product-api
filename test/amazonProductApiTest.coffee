@@ -163,7 +163,7 @@ describe 'client.browseNodeLookup(query, cb)', ->
         client.browseNodeLookup query, (err, results) ->
           results.should.be.an.Object
           results.response.should.be.an.Object
-          results.result.should.be.an.Object
+          results.result.should.be.an.Array
           done()
 
   describe 'when credentials are invalid', ->
