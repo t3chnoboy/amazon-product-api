@@ -1,8 +1,8 @@
 var amazon = require('../');
-/* eslint-disable import/no-extraneous-dependencies, no-unresolved */
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
 var koa = require('koa');
 var router = require('koa-router');
-/* eslint-enable import/no-extraneous-dependencies, no-unresolved */
+/* eslint-enable import/no-extraneous-dependencies, import/no-unresolved */
 
 var app = koa();
 var api = router();
