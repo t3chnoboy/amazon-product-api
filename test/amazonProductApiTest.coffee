@@ -52,7 +52,7 @@ describe 'client.itemSearch(query, cb)', ->
           (error == null).should.be.true
           results.should.be.an.Object
           results.response.should.be.an.Object
-          results.result.should.be.an.Object
+          results.results.should.be.an.Object
           done()
 
 
@@ -108,7 +108,7 @@ describe 'client.itemLookup(query, cb)', ->
         client.itemLookup query, (err, results) ->
           results.should.be.an.Object
           results.response.should.be.an.Object
-          results.result.should.be.an.Object
+          results.results.should.be.an.Object
           done()
 
   describe 'when credentials are invalid', ->
@@ -163,7 +163,7 @@ describe 'client.browseNodeLookup(query, cb)', ->
         client.browseNodeLookup query, (err, results) ->
           results.should.be.an.Object
           results.response.should.be.an.Object
-          results.result.should.be.an.Array
+          results.results.should.be.an.Array
           done()
 
   describe 'when credentials are invalid', ->
