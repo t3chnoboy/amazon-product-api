@@ -7,7 +7,8 @@
     "lib": "./lib/"
   },
   "scripts": {
-    "test": "mocha --opts test/support/mocha.opts"
+    "test": "mocha --opts test/support/mocha.opts",
+    "lint": "eslint ./lib"
   },
   "keywords": [
     "amazon",
@@ -25,6 +26,9 @@
   },
   "devDependencies": {
     "coffee-script": "^1.12.3",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.1",
     "mocha": "^3.2.0",
     "nock": "^9.0.2",
     "should": "^11.2.0",
