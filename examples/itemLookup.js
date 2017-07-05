@@ -10,10 +10,11 @@ client.itemLookup({
   idType: 'UPC',
   itemId: '635753490879',
   responseGroup: 'ItemAttributes,Offers,Images'
-}, function (err, results) {
+}, function itemLookupCallback(err, results) {
   if (err) {
-    console.log(err);
+    console.log(err); //eslint-disable-line
   } else {
-    console.log(results);
+    console.log(results); //eslint-disable-line
   }
 });
+
