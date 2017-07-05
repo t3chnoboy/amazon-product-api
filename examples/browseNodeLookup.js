@@ -7,11 +7,12 @@ var client = amazon.createClient({
 });
 
 client.itemLookup({
-      browseNodeId: '549726',
-      responseGroup: 'NewReleases'
-    }, function (err, results) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(results);
-      }
+  browseNodeId: '549726',
+  responseGroup: 'NewReleases'
+}, function itemLookupCallback(err, results) {
+  if (err) {
+    console.log(err); //eslint-disable-line
+  } else {
+    console.log(results); //eslint-disable-line
+  }
+});

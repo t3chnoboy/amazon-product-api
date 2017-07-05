@@ -11,10 +11,11 @@ client.itemSearch({
   searchIndex: 'DVD',
   responseGroup: 'ItemAttributes,Offers,Images',
   itemPage: '3'
-}, function (err, results) {
+}, function itemSearchCallback(err, results) {
   if (err) {
-    console.log(err);
+    console.log(err); //eslint-disable-line
   } else {
-    console.log(results);
+    console.log(results); //eslint-disable-line
   }
 });
+
