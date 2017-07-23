@@ -99,15 +99,15 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 
 - [condition:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) availiable options - 'All', 'New', 'Used', 'Refurbished', 'Collectible'. Defaults to 'All'.
 
-- [keywords:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) Defaults to ''
+- [keywords:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) Defaults to ''.
 
-- [responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'ItemAttributes,Offers,Images'). Defaults to'ItemAttributes'
+- [responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'ItemAttributes,Offers,Images'). Defaults to'ItemAttributes'.
 
 - [searchIndex:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/USSearchIndexParamForItemsearch.html) Defaults to 'All'.
 
 - [itemPage:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html) Defaults to '1'.
 
-- [sort](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/SortingbyPopularityPriceorCondition.html): Valid values include 'salesrank','psrank','titlerank','-price','price', etc.
+- [sort:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/SortingbyPopularityPriceorCondition.html) Valid values include 'salesrank','psrank','titlerank','-price','price', etc.
 
 
 ### ItemLookup
@@ -155,7 +155,7 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 
 - [itemId:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemLookup.html) One or more (up to ten) positive integers that uniquely identify an item.
 
-- [responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'ItemAttributes,Offers,Images'). Defaults to'ItemAttributes'.
+- [responseGroup:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/CHAP_ResponseGroupsList.html) You can use multiple values by separating them with comma (e.g responseGroup: 'ItemAttributes,Offers,Images'). Defaults to 'ItemAttributes'.
 
 - [searchIndex:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/USSearchIndexParamForItemsearch.html) Defaults to 'All'.
 
@@ -210,7 +210,7 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 
 To use a different endpoint, you need the choose it from the [endpoints list](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/AnatomyOfaRESTRequest.html#EndpointsandWebServices), then pass the **domain** of the endpoint URL to the `domain` param of your query.
 
-By default, the domaine used is `webservices.amazon.com`.
+By default, the domain used is `webservices.amazon.com`.
 
 #### Example:
 
