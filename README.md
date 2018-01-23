@@ -109,7 +109,6 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 
 - [sort:](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/SortingbyPopularityPriceorCondition.html) Valid values include 'salesrank','psrank','titlerank','-price','price', etc.
 
-
 ### ItemLookup
 
 > Given an Item identifier, the ItemLookup operation returns some or all of the item attributes, depending on the response group specified in the request.
@@ -208,7 +207,7 @@ You can add any [available params](http://docs.aws.amazon.com/AWSECommerceServic
 
 ## Specify the endpoint
 
-To use a different endpoint, you need the choose it from the [endpoints list](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/AnatomyOfaRESTRequest.html#EndpointsandWebServices), then pass the **domain** of the endpoint URL to the `domain` param of your query.
+To use a different endpoint (for example, to change the locale), you need the choose it from the [endpoints list](http://docs.aws.amazon.com/AWSECommerceService/latest/DG/AnatomyOfaRESTRequest.html#EndpointsandWebServices), then pass the **domain** of the endpoint URL to the `domain` param of your query.
 
 By default, the domain used is `webservices.amazon.com`.
 
